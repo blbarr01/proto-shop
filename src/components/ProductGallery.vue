@@ -1,22 +1,20 @@
 <script setup lang="ts">
+import { ref } from "vue";
+import ProductCard from "./ProductCard.vue"
 
 
-async function getProducts() {
+
     const response = await fetch('https://dummyjson.com/products');
     const data = await response.json();
-    const products = data.products
+    const  products = data.products
+        
     console.log(products);
-    return products;
-}
-
-getProducts();
+    
 </script>
 
 <template >
     <div id="product-gallery">
-        <div class="product-card" v-for="n in 10">
-            <h3>product name:<span class="dollar">$</span> Price</h3>
-        </div>
+        <ProductCard v-for="product in products"/>
     </div>
 </template>
 
