@@ -29,6 +29,7 @@ import type Product from "@/types/product";
     gap: 2em;
     max-width: 1280px;
     margin: 2em auto;
+    overflow-wrap: normal;
 }
 
 .dollar {

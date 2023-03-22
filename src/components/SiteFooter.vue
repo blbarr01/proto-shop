@@ -20,6 +20,7 @@
     border-top: 2px solid rgba(219, 48, 91, 0.725);
     display: flex;
     justify-content: space-between;
+    max-width: 1280;
    } 
 
    footer>h3{
