@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import ProductCard from "./ProductCard.vue"
-
+import type Product from "@/types/product";
 
 
     const response = await fetch('https://dummyjson.com/products');
     const data = await response.json();
-    const  products = data.products
+    const  products:Product[] = data.products
         
     console.log(products);
 

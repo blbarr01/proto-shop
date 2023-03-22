@@ -1,21 +1,23 @@
 <template>
     <div class="product-card">
-        <img :src="props.product.thumbnail" alt="" class="product-img">
+        <img :src="props.product!.thumbnail" alt="" class="product-img">
         <div class="product-details">
-            <h3> {{ props.product.title }}<span class="dollar">$ {{ props.product.price }} </span></h3>
-            <p>{{ props.product.description }} </p>
-            <p>{{ props.product.thumbnail }} </p>
+            <h3> {{ props.product!.title }}<span class="dollar">$ {{ props.product!.price }} </span></h3>
+            <p>{{ props.product!.description }} </p>
+            <p>{{ props.product!.thumbnail }} </p>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import * as Product from "@/types/product"
+import type Product from "@/types/product"
+import type { PropType } from "vue";
 const props = defineProps({
-    product: Product
-})
+    product: Object as PropType<Product>
+});
 
-console.log(props.product);
+
+
 </script>
 
 <style>
