@@ -9,12 +9,16 @@ import ProductCard from "./ProductCard.vue"
     const  products = data.products
         
     console.log(products);
+
+    const product = products[0];
+
+    
     
 </script>
 
 <template >
     <div id="product-gallery">
-        <ProductCard v-for="product in products"/>
+        <ProductCard :product="product" v-for="product in products"/>
     </div>
 </template>
 
@@ -24,6 +28,8 @@ import ProductCard from "./ProductCard.vue"
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2em;
+    max-width: 1280px;
+    margin: 2em auto;
 }
 
 .dollar {
