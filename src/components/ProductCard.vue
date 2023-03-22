@@ -11,13 +11,11 @@
 </template>
 
 <script setup lang="ts">
-import type Product from "@/types/product"
-import type { PropType } from "vue";
-const props = defineProps({
-    product: Object as PropType<Product>
-});
-
-
+    import type Product from "@/types/product"
+    import type { PropType } from "vue";
+    const props = defineProps({
+        product: Object as PropType<Product>
+    });
 
 </script>
 
