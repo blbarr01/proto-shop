@@ -6,13 +6,14 @@ const response = await fetch('https://dummyjson.com/products')
 const data = await response.json()
 const products: Product[] = data.products
 
-//console.log(products)
+const product = products[0]
+console.log(product)
 
 </script>
 
 <template>
   <div id="product-gallery">
-    <ProductCard :product="product" v-for="product in products" />
+    <ProductCard :product="product" v-for="product in products" :key="product.id"/> 
   </div>
 </template>
 

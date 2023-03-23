@@ -1,5 +1,7 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
+
+/*Vue default colors */
   --vt-c-white: #ffffff;
   --vt-c-white-soft: #f8f8f8;
   --vt-c-white-mute: #f2f2f2;
@@ -20,8 +22,15 @@
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
 
+/* personal  colors */
+
+
   --accent-clr: rgba(244, 98, 134, 0.725);
   --accent-clr-hover: rgba(219, 48, 91, 1);
+
+  --brilliant-azure: #38a6f3;
+  --electric-pink: rgba(255, 49, 121, 0.75);
+  --web-gold: #fdd602;
 }
 
 /* semantic color variables for this project */

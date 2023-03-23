@@ -3,11 +3,13 @@
     <!-- withou the '!' symbols on the product this typescript through an absolure fit' -->
     <img :src="props.product!.thumbnail" alt="" class="product-img" />
     <div class="product-details">
-      <h3>
-        {{ props.product!.title }}<span class="dollar">$ {{ props.product!.price }} </span>
-      </h3>
+        <div class="product-headline">
+          <h3>{{props.product!.brand + " " + props.product!.title }}</h3>
+          <p class="dollar"> ${{ props.product!.price }} </p>
+        </div>
+      
       <p>{{ props.product!.description }}</p>
-      <p>{{ props.product!.thumbnail }}</p>
+      <p>rating: {{ props.product!.rating }}</p>
     </div>
   </div>
 </template>
@@ -31,7 +33,18 @@ const props = defineProps({
   border-radius: 33px;
   display: flex;
   flex-direction: column;
-  padding: 0.5em 1em;
+  padding: 0.5em .75em 1em;
+}
+
+.product-details{
+  font-size: 1.25rem;
+}
+
+.product-details>.product-headline{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  font-size: 1.50rem;
 }
 
 .product-card:hover {
