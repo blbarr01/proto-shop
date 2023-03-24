@@ -1,6 +1,6 @@
 <template>
     <Header />
-    <h1>contact page</h1>
+    <h1>about page</h1>
     <Footer />
   </template>
   
