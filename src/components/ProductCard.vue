@@ -1,5 +1,6 @@
 <template>
   <div class="product-card">
+    <RouterLink :to="{name:'ProductPage', params: {id}}" class="product-link">
     <!-- withou the '!' symbols on the product this typescript through an absolure fit' -->
     <img :src="props.product!.thumbnail" alt="" class="product-img" />
     <div class="product-details">
@@ -11,18 +12,23 @@
       <p>{{ props.product!.description }}</p>
       <p>rating: {{ props.product!.rating }}</p>
     </div>
+  </RouterLink>
   </div>
 </template>
 
 <script setup lang="ts">
-import type Product from '@/types/product'
-import type { PropType } from 'vue'
-const props = defineProps({
-  product: Object as PropType<Product>
-})
+  import type Product from '@/types/product'
+  import type { PropType } from 'vue'
+  import { computed} from 'vue'
+
+  const props = defineProps({
+    product: Object as PropType<Product>
+  })
+
+  let id = props.product?.id;
 </script>
 
-<style>
+<style scoped>
 .dollar {
   color: var(--accent-clr);
 }
@@ -38,6 +44,7 @@ const props = defineProps({
 
 .product-details{
   font-size: 1.25rem;
+  color: var(--color-text)
 }
 
 .product-details>.product-headline{
@@ -56,5 +63,9 @@ const props = defineProps({
   height: 300px;
   max-width: 350px;
   border-radius: 33px;
+}
+
+.product-link:hover{
+  border-bottom: unset;
 }
 </style>
