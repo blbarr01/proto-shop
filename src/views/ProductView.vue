@@ -15,16 +15,15 @@
     import Footer from '@/components/SiteFooter.vue'
     import type Product from '@/types/product';
     import { useRoute } from 'vue-router';
-import { ref } from 'vue';
+    import { onMounted, ref } from 'vue';
 
 
     const route = useRoute()
     // need to cast the paramater; this caused such a god damn fit
     let id:number = parseInt(<string>route.params.id);
    
-    let product = ref();
-    console.log(id);
-    console.log(typeof(id));
+
+      let product = ref();
 
     try {
       const response = await fetch(`https://dummyjson.com/products/${id}`);
@@ -32,6 +31,11 @@ import { ref } from 'vue';
     } catch (error) {
         console.log(error); 
     }
+
+    onMounted(()=>{
+    })
+    
+    console.log(product);
 
 
 </script>

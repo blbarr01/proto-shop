@@ -20,11 +20,25 @@ console.log(product)
 <style>
 #product-gallery {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 2em;
   max-width: 1280px;
-  margin: 2em auto;
+  margin: 2em;
   overflow-wrap: normal;
+}
+
+
+@media screen and (min-width: 631px) {
+  #product-gallery{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1081px) {
+  #product-gallery{
+    grid-template-columns: repeat(3, 1fr);
+    margin: 2em auto;
+  }
 }
 
 .dollar {

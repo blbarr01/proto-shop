@@ -32,7 +32,7 @@ h1 {
 
 header {
   max-width: 1280px;
-  border-bottom: 2px solid rgba(219, 48, 91, 0.725);
+  border-bottom: 2px solid var(--accent-clr);
 }
 
 .nav-list{

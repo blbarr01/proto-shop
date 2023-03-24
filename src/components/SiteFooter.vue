@@ -17,7 +17,7 @@ const socials = ref(['insta', 'Twit', 'Face', 'Yout'])
 @import '../assets/main.css';
 
 footer {
-  border-top: 2px solid rgba(219, 48, 91, 0.725);
+  border-top: 2px solid var(--accent-clr);
   display: flex;
   justify-content: space-between;
   max-width: 1280;

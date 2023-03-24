@@ -24,9 +24,15 @@
 
 /* personal  colors */
 
+  --old-colr1:rgba(244, 98, 134, 0.725);
+  --old-colr-hvr: rgba(219, 48, 91, 1);
 
-  --accent-clr: rgba(244, 98, 134, 0.725);
-  --accent-clr-hover: rgba(219, 48, 91, 1);
+
+  --persian-rose: rgb(246, 46, 151);
+  --persian-rose-dull: rgba(246, 46, 151,.525);
+  --persian-blue: #153cb4;
+  --mardi-gras:#94167f;
+  --russian-violet:#300350;
 
   --brilliant-azure: #38a6f3;
   --electric-pink: rgba(255, 49, 121, 0.75);
@@ -46,6 +52,10 @@
   --color-text: var(--vt-c-text-light-1);
 
   --section-gap: 160px;
+
+  --primary-accent: var();
+  --accent-clr: var(--persian-rose-dull);
+  --accent-clr-hover:var(--persian-rose) ;
 }
 
 @media (prefers-color-scheme: dark) {
