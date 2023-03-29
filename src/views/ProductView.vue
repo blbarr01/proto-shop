@@ -23,7 +23,7 @@
     let id:number = parseInt(<string>route.params.id);
    
 
-      let product = ref();
+    let product = ref();
 
     try {
       const response = await fetch(`https://dummyjson.com/products/${id}`);
@@ -32,9 +32,7 @@
         console.log(error); 
     }
 
-    onMounted(()=>{
-    })
-    
+
     console.log(product);
 
 
