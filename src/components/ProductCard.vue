@@ -54,7 +54,7 @@
   font-size: 1.50rem;
 }
 
-.product-card:hover {
+.product-card:hover{
   border: 2px solid var(--accent-clr-hover);
   box-shadow: 
     inset 0 -0.5em 0.3em var(--accent-clr), 
@@ -75,5 +75,19 @@
 
 .product-link:hover{
   border-bottom: unset;
+
+}
+
+.product-link{}
+
+.product-link:focus{
+  outline: none;
+  box-shadow: 
+    inset 0 -0.5em 0.3em var(--accent-clr), 
+    0.3em 0.3em 1em var(--accent-clr-hover),
+    0.4em 0.4em 2em var(--brilliant-azure),
+    0.5em 0.5em 3em var(--web-gold), 
+    0.6em 0.6em 3em var(--accent-clr-hover) 
+    ;
 }
 </style>
