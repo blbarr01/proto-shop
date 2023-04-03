@@ -17,7 +17,7 @@
   </header>
   <div class="searchbar">
     <input v-if="displaySearch" class="search-input" type="text" placeholder="search">
-    <button @click="showSearch">
+    <button @click="showSearch" class="search-toggle-btn">
       <span>
         <font-awesome-icon v-if="!displaySearch" :icon="['fas', 'angles-down']" />
         <font-awesome-icon v-else :icon="['fas', 'angles-up']" />
@@ -65,23 +65,50 @@ header {
 .searchbar{
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
 }
 
+
+
 .search-input{
   width: 100%;
+  height: 2em;
   max-width: 1280px;
   line-height: 1.5rem;
   font-size: 1.25rem;
+  border: none;
+  border-bottom: 2px solid var(--persian-rose) ;
+  background-color: #2b2a33;
+  color: var( --vt-c-text-dark-2);
+}
+
+.search-input:focus{
+  outline: none;
+  box-shadow:0.4em 0.4em 2em var(--brilliant-azure);
+}
+.search-toggle-btn{
+  width: 7em;
+  height: 3em;
+  border: 2px solid var(--accent-clr);
+  border-top: none;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 3px;
+}
+
+.search-toggle-btn:focus{
+  box-shadow:0.4em 0.4em 2em var(--russian-violet);
+  box-shadow:0.4em 0.4em 2em var(--brilliant-azure);
+  outline: none;
 }
 
 span{
-  color: var(--accent-clr);
+  color: var(--persian-rose);
   max-width: 20px;
   font-size: 1.25rem;
+
 }
 
-button{
-  border: none;
-}
+
+
 </style>
