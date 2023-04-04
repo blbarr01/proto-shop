@@ -2,8 +2,8 @@
 
 <template>
   <Suspense>
-  <RouterView></RouterView>
-</Suspense>
+    <RouterView/>
+  </Suspense>
 </template>
 
 <style scoped></style>

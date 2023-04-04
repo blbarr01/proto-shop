@@ -1,8 +1,6 @@
 <template>
   <Header />
-  <Suspense>
-    <ProductGallery />
-  </Suspense>
+  <ProductGallery />
   <Footer />
 </template>
 
