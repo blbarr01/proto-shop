@@ -2,7 +2,7 @@
   <Header />
     <main>
       <h2>{{ product.title }}</h2>
-      <img :src="product.thumbnail" alt="product">
+      <img :src="product.thumbnail" :alt="product.description">
       <pre>{{ product }}</pre>
       <p>{{ product.description}}</p>
     </main>
