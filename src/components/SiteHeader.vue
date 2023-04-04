@@ -22,6 +22,9 @@
         <font-awesome-icon v-if="!displaySearch" :icon="['fas', 'angles-down']" />
         <font-awesome-icon v-else :icon="['fas', 'angles-up']" />
       </span>
+      <span>
+        <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
+      </span>
     </button>
   </div>
 </template>
@@ -94,6 +97,10 @@ header {
   border-top: none;
   background-color: rgba(0, 0, 0, 0);
   border-radius: 3px;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  gap: .325em;
 }
 
 .search-toggle-btn:focus{
@@ -104,9 +111,7 @@ header {
 
 span{
   color: var(--persian-rose);
-  max-width: 20px;
   font-size: 1.25rem;
-
 }
 
 
