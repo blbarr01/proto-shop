@@ -9,6 +9,8 @@
             <p>{{ product.description}}</p>
             <p>buy new: </p>
             <p> <span class="dollar">$</span>{{ product.price }}</p>
+            <p>first time buyer discount:</p>
+            <p>{{ discountedPrice }}</p>
             <p>average rating: {{ product.rating }}</p>
         </div>
     </main>
@@ -21,7 +23,7 @@
       import ImageWidget from './ImageWidget.vue';
       import type Product from '@/types/product';
       import { useRoute } from 'vue-router';
-      import { onMounted, ref, reactive } from 'vue';
+      import { computed, reactive } from 'vue';
   
   
       const route = useRoute()
@@ -40,8 +42,10 @@
 
       let images: string[] = product.images; 
       console.log(product);
-      //console.log(images);
       
+      const discountedPrice = computed(()=>{
+        return Math.floor(product.price - ((product.discountPercentage /100) * product.price))
+      })
   
   </script>
     
