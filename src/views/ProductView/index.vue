@@ -2,7 +2,7 @@
     <Header />
     <main>
         <div class="image-widget-wrapper">
-            <img :src="product.thumbnail" alt="">
+            <ImageWidget :images="images"/>
         </div>
         <div class="product-details-wrapper">
             <h2>{{ product.title }}</h2>
@@ -15,17 +15,18 @@
   <script lang="ts" setup>
       import Header from '@/components/SiteHeader.vue'
       import Footer from '@/components/SiteFooter.vue'
+      import ImageWidget from './ImageWidget.vue';
       import type Product from '@/types/product';
       import { useRoute } from 'vue-router';
-      import { onMounted, ref } from 'vue';
+      import { onMounted, ref, reactive } from 'vue';
   
   
       const route = useRoute()
       // need to cast the paramater; this caused such a god damn fit
       let id:number = parseInt(<string>route.params.id);
      
-  
-      let product = ref();
+        // any used to quiet the compiler need to figure out how to properly type this 
+      let product: Product | any = reactive({}); 
   
       try {
         const response = await fetch(`https://dummyjson.com/products/${id}`);
@@ -33,10 +34,12 @@
       } catch (error) {
           console.log(error); 
       }
-  
-  
+
+      let images: string[] = product.images; 
+
       console.log(product);
-  
+      //console.log(images);
+      
   
   </script>
     
