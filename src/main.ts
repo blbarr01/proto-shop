@@ -4,7 +4,7 @@ import router from './router'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faTwitter, faInstagram, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons'
-import { faAngleDoubleDown, faAngleDoubleUp, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faAngleDoubleDown, faAngleDoubleUp, faMagnifyingGlass, faStar } from '@fortawesome/free-solid-svg-icons'
 import './assets/main.css'
 
 library.add(faTwitter,
@@ -13,7 +13,8 @@ library.add(faTwitter,
     faGithub,
     faAngleDoubleDown,
     faAngleDoubleUp,
-    faMagnifyingGlass);
+    faMagnifyingGlass,
+    faStar);
 
     
 const app = createApp(App)

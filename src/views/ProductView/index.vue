@@ -1,5 +1,5 @@
 <template>
-    <Header />
+    <Header/>
     <main>
         <div class="image-widget-wrapper">
             <ImageWidget :images="images"/>
@@ -10,8 +10,12 @@
             <p>buy new: </p>
             <p> <span class="dollar">$</span>{{ product.price }}</p>
             <p>first time buyer discount:</p>
-            <p>{{ discountedPrice }}</p>
-            <p>average rating: {{ product.rating }}</p>
+            <p><span class="dollar">$</span>{{ discountedPrice }}</p>
+            <p>average rating: {{ product.rating }} <span class="web-gold"><font-awesome-icon :icon="['fas', 'star']" /></span></p>
+            <div class="btn-container">
+                <button class="azure">add to cart</button>
+                <button class="rus-violet">buy now</button>
+            </div>
         </div>
     </main>
     <Footer />
@@ -42,7 +46,7 @@
 
       let images: string[] = product.images; 
       console.log(product);
-      
+
       const discountedPrice = computed(()=>{
         return Math.floor(product.price - ((product.discountPercentage /100) * product.price))
       })
@@ -54,6 +58,32 @@
         font-size: 1.25rem;
     }
     h2{ color: var(--brilliant-azure);}
+
+    .btn-container{
+        margin-top: 1em;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    button{
+        border-radius: .33rem;
+        border: transparent;
+        color: var(--color-text);
+        font-size: 1.25rem;
+        width: 40%;
+        padding:1.25em auto;    
+    }
+
+    button:hover{
+        border-bottom: 2px solid var(--brilliant-azure);
+    }
+
+
+    .azure{ background-color: var(--persian-blue);}
+    .web-gold{color: var(--web-gold);}
+    .rus-violet{background-color: var(--russian-violet);}
+
     main{
         /* border: 2px solid blue; */
         display: grid;
