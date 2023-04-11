@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import {createPinia} from 'pinia'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faTwitter, faInstagram, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons'
@@ -19,4 +20,7 @@ library.add(faTwitter,
     
 const app = createApp(App)
 
-app.use(router).component('font-awesome-icon', FontAwesomeIcon).mount('#app')
+app.use(router)
+.use(createPinia())
+.component('font-awesome-icon', FontAwesomeIcon)
+.mount('#app')
