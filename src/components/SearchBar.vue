@@ -1,10 +1,13 @@
 <template>
-    <input  class="search-input" type="text" placeholder="search">
+    <form action="" class="search-container">
+            <CategorySelector/>
+            <input  class="search-input" type="text" placeholder="search">
+    </form>
 </template>
 
 
 <script setup lang="ts"> 
-
+    import CategorySelector from './CategorySelector.vue';
 </script>
 
 <style>
@@ -18,6 +21,11 @@
   border-bottom: 2px solid var(--persian-rose) ;
   background-color: #2b2a33;
   color: var( --vt-c-text-dark-2);
+}
+
+.search-container{
+    display: flex;
+    width: 100%;
 }
 
 .search-input:focus{
