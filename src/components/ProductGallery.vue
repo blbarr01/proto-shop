@@ -1,3 +1,9 @@
+<template>
+  <div id="product-gallery">
+    <ProductCard :product="product" v-for="product in products" :key="product.id"/> 
+  </div>
+</template>
+
 <script setup lang="ts">
 import ProductCard from './ProductCard.vue'
 import type Product from '@/types/product'
@@ -11,11 +17,7 @@ console.log(product)
 
 </script>
 
-<template>
-  <div id="product-gallery">
-    <ProductCard :product="product" v-for="product in products" :key="product.id"/> 
-  </div>
-</template>
+
 
 <style>
 #product-gallery {
