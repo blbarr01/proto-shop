@@ -14,6 +14,7 @@
         </li>
       </ul>
     </nav>
+    <LoginWidget/>
   </header>
   <div class="searchbar">
     <SearchBar v-if="displaySearch"></SearchBar>
@@ -32,6 +33,7 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
 import SearchBar from './SearchBar.vue';
+import LoginWidget from './LoginWidget.vue';
 import { ref } from 'vue'
 const title = ref('The Proto Shop')
 const displaySearch = ref(false); 
