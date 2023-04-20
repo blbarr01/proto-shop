@@ -2,6 +2,9 @@
     <form action="" class="search-container">
             <CategorySelector/>
             <input  class="search-input" type="text" placeholder="search">
+            <button class="search-btn">
+              search <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
+            </button>
     </form>
 </template>
 
@@ -28,7 +31,14 @@
     width: 100%;
 }
 
-.search-input:focus{
+.search-btn{
+  color: var(--persian-rose);
+  border: none;
+  background-color: transparent;
+}
+
+
+.search-input:focus, .search-btn:focus{
   outline: none;
   box-shadow:0.4em 0.4em 2em var(--brilliant-azure);
 }
