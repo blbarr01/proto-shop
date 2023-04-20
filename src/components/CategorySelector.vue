@@ -21,5 +21,6 @@
         outline: none;
         border: none;
         border-bottom: 2px solid var(--persian-rose);
+        border-left: 2px solid var(--persian-rose);
     }
 </style>

@@ -35,6 +35,8 @@
   color: var(--persian-rose);
   border: none;
   background-color: transparent;
+  border-bottom: 2px solid var(--persian-rose);
+  border-right: 2px solid var(--persian-rose);
 }
 
 
