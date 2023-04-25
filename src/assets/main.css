@@ -12,6 +12,10 @@ a{
   transition: 0.4s;
 }
 
+.clickable{
+  cursor: pointer;
+}
+
 @media (hover: hover) {
   a:hover {
     color: var(--web-gold);
