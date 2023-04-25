@@ -16,7 +16,7 @@
 
 <style lang="css">
     select{
-        background-color: transparent;
+        background-color: var(--color-background);
         color: var(--text-color);
         outline: none;
         border: none;
