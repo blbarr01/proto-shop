@@ -17,12 +17,20 @@
 
 <script setup lang="ts">
     import {ref} from 'vue'
+    import { supabase } from '@/supabase'
     const loading = ref(false)
     const password = ref('')
     const email = ref('')
-    
-    function handleLogin(){
 
+    async function handleLogin(){
+      try{
+        let { data, error } = await supabase.auth.signInWithPassword({
+        email: email.value,
+        password: password.value
+    })
+      }catch(error){
+
+      }
     }
 
 </script>

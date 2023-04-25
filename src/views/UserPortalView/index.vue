@@ -7,6 +7,9 @@
         <RegistrationWidget v-if="portalToggle" />
         <LoginWidget v-else="portalToggle" />
     </div>
+    <div class="auth-widget">
+        <p @click="loginWithGoogle">or log in with google <span><font-awesome-icon :icon="['fab', 'google']" /></span></p>
+    </div>
     <p> 
         <span v-if="portalToggle">already have an account. </span>
         <span v-else="portalToggle"> new?</span>
@@ -20,7 +23,20 @@
 import SiteFooter from '@/components/SiteFooter.vue';
 import LoginWidget from './LoginWidget.vue';
 import RegistrationWidget from './RegistrationWidget.vue';
+import { supabase } from '@/supabase';
 import { ref } from "vue"
+
+async function loginWithGoogle(){
+    try {
+        let { data, error } = await supabase.auth.signInWithOAuth({
+            provider: 'google'
+        })        
+    } catch (error) {
+        
+    }
+
+
+}
 
 const portalToggle = ref(true)
 console.log(portalToggle.value);
@@ -47,6 +63,23 @@ console.log(portalToggle.value);
      align-items: center;
      margin: 2em auto;
  }
+
+.auth-widget{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-widget>p{
+    padding: .5em 1.25em;
+    border: 2px solid var(--color-border);
+    border-radius: .33rem;
+}
+
+.auth-widget>p:hover{
+    border-color: var(--color-border-hover);
+    cursor: pointer;
+}
 
  .link{
     color: var(--brilliant-azure);

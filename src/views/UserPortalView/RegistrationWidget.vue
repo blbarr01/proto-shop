@@ -1,7 +1,7 @@
 <template>
     <div class="widget-wrapper">
     <h3>Register for a new account</h3>
-    <form  @submit.prevent="handleLogin" class="form">
+    <form  @submit.prevent="registerUser" class="form">
           <input class="inputField" required type="email" placeholder="email" v-model="email" />
           <input type="password" name="password" placeholder="password" v-model="confPass">
           <input type="password" name="conf-password" placeholder="confirm password" v-model="pass">
@@ -13,35 +13,46 @@
           />
 
     </form>
+    <div v-if="errorMsg" class="error-msg">
+      <p>{{ errorMsg }}</p>
+    </div>
   </div>
   </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { supabase } from '@/supabase'
+  import { ref } from 'vue'
+  import { supabase } from '@/supabase'
+  import { useRouter } from 'vue-router'
 
-const loading = ref(false)
-const email = ref('')
-const pass = ref('')
-const confPass = ref('')
+  const loading = ref(false)
+  const email = ref('')
+  const pass = ref('')
+  const confPass = ref('')
+  const router = useRouter()
+  const errorMsg = ref('');
 
 
-const handleLogin = async () => {
-  try {
-    loading.value = true
-    const { error } = await supabase.auth.signInWithOtp({
-      email: email.value,
-    })
-    if (error) throw error
-    alert('Check your email for the login link!')
-  } catch (error) {
-    if (error instanceof Error) {
-      alert(error.message)
-    }
-  } finally {
-    loading.value = false
+  async function registerUser() {
+    if (pass.value === confPass.value && email.value != '') {
+      try {
+        let { data, error } = await supabase.auth.signUp({
+          email: email.value,
+          password: pass.value
+        })
+        if(error){
+          errorMsg.value = error.message
+          setTimeout(()=>errorMsg.value ='',5000)
+          throw error
+        } 
+        router.push({name: "Account"})
+      } catch (error) {
+        console.log(error);
+        
+      }
+      return; 
+  }  
+    
   }
-}
 </script>
 
 <style>
