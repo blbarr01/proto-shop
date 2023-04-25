@@ -1,34 +1,55 @@
 <template>
-    <div style="border: 2px solid magenta;">
-        <h2>we're glad to have you at the proto shop </h2>
-        <router-link  to="/">
-            back to home 
-        </router-link>
-            <div class="form-container">
-                <SignupWidget v-if="portalToggle"/>
-                <LoginWidget v-else="portalToggle"/>
-            </div>
-            <p>already have an account. click <span @click="portalToggle= !portalToggle">here</span></p>
-        </div>
+    <div class="portal-header">
+        <h2>site Logo </h2>
+        <router-link to="/">back to home </router-link>
+    </div>
+    <div class="form-container">
+        <RegistrationWidget v-if="portalToggle" />
+        <LoginWidget v-else="portalToggle" />
+    </div>
+    <p> 
+        <span v-if="portalToggle">already have an account. </span>
+        <span v-else="portalToggle"> new?</span>
+        <span class="link" @click="portalToggle = !portalToggle"> click here</span>
+    </p>
+    <SiteFooter />
 </template>
 
 <script setup lang="ts">
-    import type LoginWidget from './LoginWidget.vue';
-    import SignupWidget from './SignupWidget.vue';
-    import {ref} from "vue"
-    const portalToggle =ref(true)
-    console.log(portalToggle.value);
-    
+
+import SiteFooter from '@/components/SiteFooter.vue';
+import LoginWidget from './LoginWidget.vue';
+import RegistrationWidget from './RegistrationWidget.vue';
+import { ref } from "vue"
+
+const portalToggle = ref(true)
+console.log(portalToggle.value);
+
 
 </script>
 
 
 <style> 
-    .form-container{
-        border: 2px solid magenta;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
 
+.portal-header{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+}
+
+.form-container {
+     /* border: 2px solid magenta; */
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin: 2em auto;
+ }
+
+ .link{
+    color: var(--brilliant-azure);
+    cursor: pointer;
+ }
 </style>

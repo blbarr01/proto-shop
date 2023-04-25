@@ -22,7 +22,7 @@
   font-size: 1.25rem;
   border: none;
   border-bottom: 2px solid var(--persian-rose) ;
-  background-color: #2b2a33;
+  background-color: var(--color-background-soft);
   color: var( --vt-c-text-dark-2);
 }
 
