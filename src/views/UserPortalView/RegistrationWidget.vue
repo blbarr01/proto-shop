@@ -8,7 +8,7 @@
           <input
             type="submit"
             class="button block"
-            :value="loading ? 'Loading' : 'Send magic link'"
+            :value="loading ? 'Loading' : 'Sign up'"
             :disabled="loading"
           />
 
@@ -47,6 +47,7 @@ const handleLogin = async () => {
 <style>
   .widget-wrapper{
     border: 2px solid var(--persian-rose-dull);  
+    border-radius: .33rem;
     padding: 3em;
   }
 

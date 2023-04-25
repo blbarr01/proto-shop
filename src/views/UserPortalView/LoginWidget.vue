@@ -1,13 +1,29 @@
 <template>
-    <div>
-        <h3>Sign in</h3>
-        <form action="">
+    <div class="widget-wrapper">
+    <h3>Sign in</h3>
+    <form  @submit.prevent="handleLogin" class="form">
+          <input class="inputField" required type="email" placeholder="email" v-model="email" />
+          <input type="password" name="password" placeholder="password" v-model="password">
+          <input
+            type="submit"
+            class="button block"
+            :value="loading ? 'Loading' : 'login'"
+            :disabled="loading"
+          />
 
-        </form>
-    </div>
+    </form>
+  </div>
 </template>
 
 <script setup lang="ts">
+    import {ref} from 'vue'
+    const loading = ref(false)
+    const password = ref('')
+    const email = ref('')
+    
+    function handleLogin(){
+
+    }
 
 </script>
 
