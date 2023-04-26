@@ -20,28 +20,32 @@
 
 <script setup lang="ts">
 
-import SiteFooter from '@/components/SiteFooter.vue';
-import LoginWidget from './LoginWidget.vue';
-import RegistrationWidget from './RegistrationWidget.vue';
-import { supabase } from '@/supabase';
-import { ref } from "vue"
+    import SiteFooter from '@/components/SiteFooter.vue';
+    import LoginWidget from './LoginWidget.vue';
+    import RegistrationWidget from './RegistrationWidget.vue';
+    import { supabase } from '@/supabase';
+    import { useAuth } from '@/stores/auth';
+    import { useRouter } from 'vue-router';
+    import { ref } from "vue"
 
-async function loginWithGoogle(){
-    try {
-        let { data, error } = await supabase.auth.signInWithOAuth({
-            provider: 'google'
-        })        
-    } catch (error) {
-        
+    const router = useRouter()
+    const authStore = useAuth()
+    // if a user is already logged in send them to the account page
+    if(authStore.isAuthenticated) router.push({name: "Account"})
+
+    async function loginWithGoogle(){
+        try {
+            let { data, error } = await supabase.auth.signInWithOAuth({
+                provider: 'google'
+            })        
+        } catch (error) {
+            
+        }
+
+
     }
 
-
-}
-
-const portalToggle = ref(true)
-console.log(portalToggle.value);
-
-
+    const portalToggle = ref(true)
 </script>
 
 

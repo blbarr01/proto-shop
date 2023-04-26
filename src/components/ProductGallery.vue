@@ -12,8 +12,6 @@ const response = await fetch('https://dummyjson.com/products')
 const data = await response.json()
 const products: Product[] = data.products
 
-const product = products[0]
-console.log(product)
 
 </script>
 
