@@ -1,8 +1,8 @@
 import { defineStore } from "pinia";
-import { reactive, ref } from "vue";
+import { computed, reactive, ref } from "vue";
 
 
-export const userStore = defineStore('user', ()=>{
+export const useAuth = defineStore('user', ()=>{
     const user = ref({})
     const isAuthenticated = ref(false);
 
@@ -10,4 +10,8 @@ export const userStore = defineStore('user', ()=>{
         user.value = user
         isAuthenticated.value = true
     }
+
+    const userStatus = computed(()=>user.value)
+
+    return {user, isAuthenticated, setUser, userStatus}
 })
