@@ -27,7 +27,6 @@
     import { supabase } from '@/supabase'
     import { useRouter } from 'vue-router'
     import { useAuth } from '@/stores/auth'
-import { log } from 'console'
 
     const loading = ref(false)
     const password = ref('')
@@ -57,11 +56,8 @@ import { log } from 'console'
         // if sucessfull set the auth state and redirect to account page
         const user  = data.user
         const userID = user?.id
-        console.log("user", user);
-        authStore.setUser(user)
-        console.log("userID: ", userID);
-        console.log("user state", authStore.isAuthenticated);
-
+        authStore.userId = userID!; 
+        authStore.isAuthenticated = true
         //redirect user to the account page
         router.push({name: "Account"})
       }catch(error){
