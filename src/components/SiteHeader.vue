@@ -100,8 +100,16 @@ span{
 .cart-wrapper{
   position: fixed;
   z-index: 2;
-  right: 80px;
-  top: 80px;
+  right: 50px;
+  bottom: 20px;
 }
+
+@media screen and (min-width: 1081px){
+  .cart-wrapper{
+    right: 80px;
+    top: 80px;
+  }
+}
+
 
 </style>
