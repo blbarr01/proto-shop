@@ -4,6 +4,8 @@ import About from '@/views/AboutView.vue'
 import Contact from '@/views/ContactView.vue'
 import Checkout from '@/views/CheckoutView.vue'
 import Product from '@/views/ProductView/index.vue'
+import UserPortal from "@/views/UserPortalView/index.vue"
+import AccountView from '@/views/AccountView.vue'
 
 
 
@@ -34,6 +36,16 @@ const router = createRouter({
       path: "/product/:id",
       name: "ProductPage",
       component: Product,
+    },
+    {
+      path:"/portal",
+      name:"UserPortal",
+      component: UserPortal, 
+    },
+    {
+      path:"/account",
+      name:"Account",
+      component: AccountView, 
     }
   ]
 })

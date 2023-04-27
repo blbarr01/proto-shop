@@ -1,0 +1,92 @@
+<template>
+    <div class="portal-header">
+        <h2>site Logo </h2>
+        <router-link to="/">back to home </router-link>
+    </div>
+    <div class="form-container">
+        <RegistrationWidget v-if="portalToggle" />
+        <LoginWidget v-else="portalToggle" />
+    </div>
+    <div class="auth-widget">
+        <p @click="loginWithGoogle">or log in with google <span><font-awesome-icon :icon="['fab', 'google']" /></span></p>
+    </div>
+    <p> 
+        <span v-if="portalToggle">already have an account. </span>
+        <span v-else="portalToggle"> new?</span>
+        <span class="link" @click="portalToggle = !portalToggle"> click here</span>
+    </p>
+    <SiteFooter />
+</template>
+
+<script setup lang="ts">
+
+    import SiteFooter from '@/components/SiteFooter.vue';
+    import LoginWidget from './LoginWidget.vue';
+    import RegistrationWidget from './RegistrationWidget.vue';
+    import { supabase } from '@/supabase';
+    import { useAuth } from '@/stores/auth';
+    import { useRouter } from 'vue-router';
+    import { ref } from "vue"
+
+    const router = useRouter()
+    const authStore = useAuth()
+    // if a user is already logged in send them to the account page
+    if(authStore.isAuthenticated) router.push({name: "Account"})
+
+    async function loginWithGoogle(){
+        try {
+            let { data, error } = await supabase.auth.signInWithOAuth({
+                provider: 'google'
+            })        
+        } catch (error) {
+            
+        }
+
+
+    }
+
+    const portalToggle = ref(true)
+</script>
+
+
+<style> 
+
+.portal-header{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+}
+
+.form-container {
+     /* border: 2px solid magenta; */
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin: 2em auto;
+ }
+
+.auth-widget{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-widget>p{
+    padding: .5em 1.25em;
+    border: 2px solid var(--color-border);
+    border-radius: .33rem;
+}
+
+.auth-widget>p:hover{
+    border-color: var(--color-border-hover);
+    cursor: pointer;
+}
+
+ .link{
+    color: var(--brilliant-azure);
+    cursor: pointer;
+ }
+</style>

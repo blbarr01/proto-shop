@@ -78,7 +78,6 @@
 
 }
 
-.product-link{}
 
 .product-link:focus{
   outline: none;

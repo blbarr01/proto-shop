@@ -12,11 +12,16 @@
         <li class="nav-item">
           <RouterLink to="/contact"> Contact </RouterLink>
         </li>
+        <li>
+          <RouterLink class="nav-item" to="/portal">
+            <font-awesome-icon :icon="['fas', 'circle-user']" />
+        </RouterLink >
+        </li>
       </ul>
     </nav>
   </header>
   <div class="searchbar">
-    <input v-if="displaySearch" class="search-input" type="text" placeholder="search">
+    <SearchBar v-if="displaySearch"></SearchBar>
     <button @click="showSearch" class="search-toggle-btn">
       <span>
         <font-awesome-icon v-if="!displaySearch" :icon="['fas', 'angles-down']" />
@@ -31,7 +36,7 @@
 
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
-
+import SearchBar from './SearchBar.vue';
 import { ref } from 'vue'
 const title = ref('The Proto Shop')
 const displaySearch = ref(false); 
@@ -74,22 +79,7 @@ header {
 
 
 
-.search-input{
-  width: 100%;
-  height: 2em;
-  max-width: 1280px;
-  line-height: 1.5rem;
-  font-size: 1.25rem;
-  border: none;
-  border-bottom: 2px solid var(--persian-rose) ;
-  background-color: #2b2a33;
-  color: var( --vt-c-text-dark-2);
-}
 
-.search-input:focus{
-  outline: none;
-  box-shadow:0.4em 0.4em 2em var(--brilliant-azure);
-}
 .search-toggle-btn{
   width: 7em;
   height: 3em;
