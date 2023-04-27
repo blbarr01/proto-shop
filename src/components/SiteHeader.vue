@@ -77,7 +77,15 @@ header {
   flex-direction: column;
 }
 
+.cart-link{
+  padding: 1em;
+  background: var(--persian-rose);
+  border-radius: 50%;
+}
 
+.cart-icon-wrapper{
+  color: rgb(55, 58, 60);
+}
 
 
 .search-toggle-btn{
