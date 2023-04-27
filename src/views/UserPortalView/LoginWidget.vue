@@ -27,7 +27,6 @@
     import { supabase } from '@/supabase'
     import { useRouter } from 'vue-router'
     import { useAuth } from '@/stores/auth'
-import { log } from 'console'
 
     const loading = ref(false)
     const password = ref('')
