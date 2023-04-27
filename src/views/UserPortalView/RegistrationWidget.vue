@@ -55,29 +55,6 @@
   }
 </script>
 
-<style>
-  .widget-wrapper{
-    border: 2px solid var(--persian-rose-dull);  
-    border-radius: .33rem;
-    padding: 3em;
-  }
-
-  .form{
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-  }
-
-  input{
-    background-color: var(--color-background-soft); 
-    color: var( --vt-c-text-dark-2);
-    border: none;
-    height: 2.25rem;
-    font-size: 1.25rem;
-  }
+<style scoped>
   
-  input:focus {
-            outline: none;
-            border-bottom: 4px solid var(--persian-rose);
-        }
 </style>
