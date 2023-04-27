@@ -1,5 +1,5 @@
 <template>
-    <div class="widget-wrapper">
+    <div class="cart-widget-wrapper">
         <RouterLink class="nav-item" to="/checkout">
             <span class="cart-icon-wrapper">
               <font-awesome-icon :icon="['fas', 'cart-shopping']" />  
@@ -15,6 +15,6 @@
 </script>
 
 
-<style>
+<style scoped>
 
 </style>
