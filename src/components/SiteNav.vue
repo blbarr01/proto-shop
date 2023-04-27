@@ -21,22 +21,22 @@
 
 
 <script lang='ts' setup>
-    import { RouterLink } from 'vue-router';
+import { RouterLink } from 'vue-router';
 </script>
 
 <style>
-    .nav-list{
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 2em;
-  margin:2em auto;
+.nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2em;
+    margin: 2em auto;
 }
 
 
-.nav-item{
-  font-size: 1.75rem;
+.nav-item {
+    font-size: 1.75rem;
 }
 </style>
 

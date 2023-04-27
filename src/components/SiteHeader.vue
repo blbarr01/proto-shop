@@ -1,13 +1,10 @@
 <template>
   <header>
     <h1>{{ title }}</h1>
-    <div class="nav-cart-wrapper">
-      <SiteNav/>
-      <CartWidget/>
-    </div>
-  </header>
-  <div class="searchbar">
-    <SearchBar v-if="displaySearch"></SearchBar>
+        <SiteNav/>
+    </header>
+    <div class="searchbar">
+      <SearchBar v-if="displaySearch"></SearchBar>
     <button @click="showSearch" class="search-toggle-btn">
       <span>
         <font-awesome-icon v-if="!displaySearch" :icon="['fas', 'angles-down']" />
@@ -17,6 +14,9 @@
         <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
       </span>
     </button>
+  </div>
+  <div class="cart-wrapper">
+    <CartWidget/>
   </div>
 </template>
 
@@ -97,5 +97,11 @@ span{
 }
 
 
+.cart-wrapper{
+  position: fixed;
+  z-index: 2;
+  right: 80px;
+  top: 80px;
+}
 
 </style>
