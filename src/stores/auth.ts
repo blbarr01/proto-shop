@@ -3,18 +3,18 @@ import { computed, reactive, ref } from "vue";
 
 
 export const useAuth = defineStore('auth', ()=>{
-    const user = ref({})
     const isAuthenticated = ref(false);
+    const userId = ref('');
 
-    function setUser(user:any){
-        user.value =  user
+    function setUser(userID: string){
+        userId.value =  userID
         isAuthenticated.value = true
     }
     function logOutUser(){
         isAuthenticated.value = false;
-        user.value = {};
+        userId.value = ''
     }
-    const userStatus = computed(()=>user)
+    const getUID = computed(()=>userId)
 
-    return {user, isAuthenticated, setUser, userStatus, logOutUser}
+    return {userId, isAuthenticated, setUser, getUID, logOutUser}
 })

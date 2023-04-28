@@ -55,7 +55,6 @@
 
   --section-gap: 160px;
 
-  --primary-accent: var();
   --accent-clr: var(--persian-rose-dull);
   --accent-clr-hover:var(--persian-rose) ;
 }
