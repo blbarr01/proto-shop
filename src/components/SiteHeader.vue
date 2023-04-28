@@ -1,27 +1,10 @@
 <template>
   <header>
     <h1>{{ title }}</h1>
-    <nav>
-      <ul class="nav-list">
-        <li class="nav-item">
-          <RouterLink to="/"> Home </RouterLink>
-        </li>
-        <li class="nav-item">
-          <RouterLink to="/about"> About </RouterLink>
-        </li >
-        <li class="nav-item">
-          <RouterLink to="/contact"> Contact </RouterLink>
-        </li>
-        <li>
-          <RouterLink class="nav-item" to="/portal">
-            <font-awesome-icon :icon="['fas', 'circle-user']" />
-        </RouterLink >
-        </li>
-      </ul>
-    </nav>
-  </header>
-  <div class="searchbar">
-    <SearchBar v-if="displaySearch"></SearchBar>
+        <SiteNav/>
+    </header>
+    <div class="searchbar">
+      <SearchBar v-if="displaySearch"></SearchBar>
     <button @click="showSearch" class="search-toggle-btn">
       <span>
         <font-awesome-icon v-if="!displaySearch" :icon="['fas', 'angles-down']" />
@@ -32,11 +15,16 @@
       </span>
     </button>
   </div>
+  <div class="cart-wrapper">
+    <CartWidget/>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { RouterLink } from 'vue-router';
+import type CartWidgetVue from './CartWidget.vue';
 import SearchBar from './SearchBar.vue';
+import SiteNav from './SiteNav.vue';
+import CartWidget from './CartWidget.vue';
 import { ref } from 'vue'
 const title = ref('The Proto Shop')
 const displaySearch = ref(false); 
@@ -56,19 +44,7 @@ header {
   border-bottom: 2px solid var(--accent-clr);
 }
 
-.nav-list{
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 2em;
-  margin:2em auto;
-}
 
-
-.nav-item{
-  font-size: 1.75rem;
-}
 
 .searchbar{
   display: flex;
@@ -77,7 +53,15 @@ header {
   flex-direction: column;
 }
 
+.cart-link{
+  padding: 1em;
+  background: var(--persian-rose);
+  border-radius: 50%;
+}
 
+.cart-icon-wrapper{
+  color: rgb(55, 58, 60);
+}
 
 
 .search-toggle-btn{
@@ -104,6 +88,20 @@ span{
   font-size: 1.25rem;
 }
 
+.nav-cart-wrapper{
+  display: flex;
+  border: 2px solid white;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5em;
+}
 
+
+.cart-wrapper{
+  position: fixed;
+  z-index: 2;
+  right: 80px;
+  top: 80px;
+}
 
 </style>

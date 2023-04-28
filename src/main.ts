@@ -5,7 +5,7 @@ import {createPinia} from 'pinia'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faTwitter, faInstagram, faFacebook, faGithub, faGoogle } from '@fortawesome/free-brands-svg-icons'
-import { faAngleDoubleDown, faAngleDoubleUp, faMagnifyingGlass, faStar, faCircleUser } from '@fortawesome/free-solid-svg-icons'
+import { faAngleDoubleDown, faAngleDoubleUp, faMagnifyingGlass, faStar, faCircleUser, faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import './assets/main.css'
 
 library.add(faTwitter,
@@ -17,7 +17,8 @@ library.add(faTwitter,
     faAngleDoubleUp,
     faMagnifyingGlass,
     faStar,
-    faCircleUser);
+    faCircleUser,
+    faCartShopping);
 
     
 const app = createApp(App)
