@@ -36,9 +36,6 @@
     const authStore = useAuth(); 
 
 
-
-
-
     
     async function handleLogin(){
       // attempt login 
