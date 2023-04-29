@@ -27,6 +27,7 @@
     import { useAuth } from '@/stores/auth';
     import { useRouter } from 'vue-router';
     import { ref } from "vue"
+    import AccountView from '../AccountView.vue';
 
     const router = useRouter()
     const authStore = useAuth()
@@ -38,8 +39,16 @@
             let { data, error } = await supabase.auth.signInWithOAuth({
                 provider: 'google'
             })        
-        } catch (error) {
+            if (error) {
+                throw error
+            }
             
+            console.log(data);
+            authStore.isAuthenticated = true
+            router.push({name: "Account"})
+            
+        } catch (error) {
+            console.error(error)
         }
 
 
