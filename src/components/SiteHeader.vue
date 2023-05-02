@@ -15,18 +15,7 @@
       </ul>
     </nav>
   </header>
-  <div class="searchbar">
-    <SearchBar v-if="displaySearch"></SearchBar>
-    <button @click="showSearch" class="search-toggle-btn">
-      <span>
-        <font-awesome-icon v-if="!displaySearch" :icon="['fas', 'angles-down']" />
-        <font-awesome-icon v-else :icon="['fas', 'angles-up']" />
-      </span>
-      <span>
-        <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
-      </span>
-    </button>
-  </div>
+ 
 </template>
 
 <script setup lang="ts">
