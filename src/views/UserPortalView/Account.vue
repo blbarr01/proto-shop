@@ -17,7 +17,6 @@ async function getProfile() {
   try {
     loading.value = true
     const { user } = session?.value
-
     let { data, error, status } = await supabase
       .from('profiles')
       .select(`username, avatar_url`)
@@ -73,15 +72,14 @@ async function signOut() {
 </script>
 
 <template>
-  <form class="form-widget" @submit.prevent="updateProfile">
+  <div class="wrapper">
+  <form class="profile-form" @submit.prevent="updateProfile">
     <Avatar v-model:path="avatar_url" @upload="updateProfile" size="10" />
     <div>
-      <label for="email">Email</label>
       <input id="email" type="text" :value="session.user.email" disabled />
     </div>
     <div>
-      <label for="username">Name</label>
-      <input id="username" type="text" v-model="username" />
+      <input id="username" type="text" v-model="username"  placeholder="name"/>
     </div>
 
 
@@ -95,15 +93,32 @@ async function signOut() {
     </div>
 
     <div>
-      <button class="button block" @click="signOut" :disabled="loading">Sign Out</button>
+      <button class="" @click="signOut" :disabled="loading">Sign Out</button>
     </div>
   </form>
+</div>
 </template>
 
 
-<style> 
-    .update-btn{
-        
-    }
+<style scoped> 
+.profile-form{
+  border: 2px solid var(--accent-clr);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5em;
+  padding: 2em;
+}
 
+.wrapper{
+  border: 2px solid cyan ;
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+}
+
+.update-btn{
+
+}
 </style>

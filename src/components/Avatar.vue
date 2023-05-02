@@ -50,12 +50,12 @@ watch(path, () => {
 </script>
 
 <template>
-  <div> 
+  <div class="avatar-wrapper"> 
     <img
       v-if="src"
       :src="src"
       alt="Avatar"
-      class="avatar image"
+      class="avatar-image"
       :style="{ height: size + 'em', width: size + 'em' }"
     />
     <div v-else class="avatar no-image" :style="{ height: size + 'em', width: size + 'em' }" />
@@ -75,3 +75,12 @@ watch(path, () => {
     </div>
   </div>
 </template>
+
+
+<style>
+  .avatar-image{
+    border: 2px solid var(--color-border);
+    border-radius: 30%;
+  }
+
+</style>
