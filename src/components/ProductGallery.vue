@@ -2,28 +2,23 @@
   <div>
     <div class="searchbar">
       <SearchBar v-if="displaySearch"></SearchBar>
-      <form action="" class="search-container">
-      <CategorySelector :categories="categories" v-model="selected" />
-      <input class="search-input" type="text" v-model="searchTerm" placeholder="Search by Title" @input="filterProducts" />
-      <button class="search-btn">
-        Search <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
-      </button>
-    </form>
+      <form action="" class="search-container" v-show="displaySearch">
+        <CategorySelector :categories="categories" v-model="selected" />
+        <input class="search-input" type="text" v-model="searchTerm" placeholder="Search by Title" @input="filterProducts" />
+        <button class="search-btn">
+          Search <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
+        </button>
+      </form>
       <button @click="showSearch" class="search-toggle-btn">
-        
-      <span>
-        <font-awesome-icon v-if="!displaySearch" :icon="['fas', 'angles-down']" />
-        <font-awesome-icon v-else :icon="['fas', 'angles-up']" />
-      </span>
-      <span>
-        <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
-      </span>
-      
-    </button>
-    
+        <span>
+          <font-awesome-icon v-if="!displaySearch" :icon="['fas', 'angles-down']" />
+          <font-awesome-icon v-else :icon="['fas', 'angles-up']" />
+        </span>
+        <span>
+          <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
+        </span>
+      </button>
     </div>
-
-    
     <div id="product-gallery">
       <ProductCard :product="product" v-for="product in filteredProducts" :key="product.id" />
     </div>
@@ -69,9 +64,9 @@ function filterProducts() {
 }
 
 const displaySearch = ref(false); 
-const showSearch = () => {displaySearch.value = !displaySearch.value; console.log(displaySearch.value);
-}
+const showSearch = () => {displaySearch.value = !displaySearch.value; console.log(displaySearch.value);}
 </script>
+
 
 <style>
 .search-input{
