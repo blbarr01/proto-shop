@@ -7,8 +7,9 @@
 <script setup lang="ts">
 import ProductCard from './ProductCard.vue'
 import type Product from '@/types/product'
+import {baseURL} from "@/endpoint"
 
-const response = await fetch('https://dummyjson.com/products')
+const response = await fetch(baseURL)
 const data = await response.json()
 const products: Product[] = data.products
 
