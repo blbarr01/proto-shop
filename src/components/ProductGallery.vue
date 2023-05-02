@@ -5,7 +5,7 @@
       <form action="" class="search-container" v-show="displaySearch">
         <CategorySelector :categories="categories" v-model="selected" />
         <input class="search-input" type="text" v-model="searchTerm" placeholder="Search by Title" @input="filterProducts" />
-        <button class="search-btn">
+        <button class="search-btn" @click.prevent="fetchProducts">
           Search <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
         </button>
       </form>
@@ -31,23 +31,36 @@ import ProductCard from './ProductCard.vue';
 import CategorySelector from './CategorySelector.vue';
 import type Product from '@/types/product';
 
-const response = await fetch('https://dummyjson.com/products');
-const data = await response.json();
-const products: Product[] = data.products;
-
 const selected = ref('');
 const searchTerm = ref('');
+const categories: any[] = [];
 
-const categories = products.reduce((acc: string[], curr) => {
-  if (!acc.includes(curr.category)) {
-    acc.push(curr.category);
+
+const products = ref<Product[]>([]);
+
+const fetchProducts = async () => {
+  const response = await fetch('https://dummyjson.com/products');
+  const data = await response.json();
+  products.value = data.products;
+  categories.length = 0;
+  for (const product of products.value) {
+    if (!categories.includes(product.category)) {
+      categories.push(product.category);
+    }
   }
-  return acc;
-}, []);
+};
+
+const showSearch = () => {
+  displaySearch.value = !displaySearch.value;
+};
+
+const filterProducts = () => {
+  // no need to do anything, products and categories will be updated by fetchProducts
+};
 
 const filteredProducts = computed(() => {
-  if (!selected.value && !searchTerm.value) return products;
-  return products.filter((product) => {
+  if (!selected.value && !searchTerm.value) return products.value;
+  return products.value.filter((product) => {
     if (selected.value && product.category !== selected.value) {
       return false;
     }
@@ -58,13 +71,10 @@ const filteredProducts = computed(() => {
   });
 });
 
-function filterProducts() {
-  // Trigger computed property to update the filtered products
-  filteredProducts.value;
-}
+const displaySearch = ref(false);
 
-const displaySearch = ref(false); 
-const showSearch = () => {displaySearch.value = !displaySearch.value; console.log(displaySearch.value);}
+fetchProducts();
+
 </script>
 
 
