@@ -9,19 +9,36 @@
 <script setup lang="ts">
 import ProductCard from './ProductCard.vue'
 import type Product from '@/types/product'
+import type EventData from '@/types/eventData'
 import {baseURL} from "@/endpoint"
 import emitter from "@/events"
+import { onMounted, ref } from 'vue'
 
+
+const products = ref(<Product[]>[]); 
 
 emitter.on("*", (e, data)=>{
-  console.log("my emmit says:", data);
+  if (e ==='update-fetch') {
+  fetchProducts(<EventData>data)    
+  } 
 })
 
+async function fetchProducts(eventData?:EventData){
+  if (eventData) {
+    var {category, query} = eventData
+    console.log(category, query);
+    
+  }       
+  const response = await fetch(baseURL);
+  const data = await response.json();
+  const products: Product[] = data.products;
+  return products;
+}
 
-const response = await fetch(baseURL)
-const data = await response.json()
-const products: Product[] = data.products
-const emmits = defineEmits(['update-fetch'])
+onMounted(async () => {
+  products.value = await fetchProducts()
+})
+
 
 </script>
 

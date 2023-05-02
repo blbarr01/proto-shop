@@ -13,7 +13,7 @@
     import CategorySelector from './CategorySelector.vue';
     import { ref } from "vue";
     import emitter from "@/events"
-
+    
     
 
     const queryString = ref('');
@@ -24,9 +24,9 @@
     }
 
     function handleEmit(selected:string){
-      console.log("log from the event emiiter", selected);
       category.value = selected;
     }
+
 
 </script>
 
