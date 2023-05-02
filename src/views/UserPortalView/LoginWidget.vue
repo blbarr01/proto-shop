@@ -6,7 +6,7 @@
           <input type="password" name="password" placeholder="password" v-model="password">
           <input
             type="submit"
-            class="button block"
+            class="clickable"
             :value="loading ? 'Loading' : 'login'"
             :disabled="loading"
           />
@@ -32,7 +32,6 @@
     const password = ref('')
     const email = ref('')
     const errorMsg = ref('')
-    const router = useRouter()
     const authStore = useAuth(); 
 
 
@@ -56,7 +55,6 @@
         authStore.userId = userID!; 
         authStore.isAuthenticated = true
         //redirect user to the account page
-        router.push({name: "Account"})
       }catch(error){
         console.error(error);
       }

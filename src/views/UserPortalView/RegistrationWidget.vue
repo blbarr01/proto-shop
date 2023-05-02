@@ -7,7 +7,7 @@
           <input type="password" name="conf-password" placeholder="confirm password" v-model="pass">
           <input
             type="submit"
-            class="button block"
+            class="clickable"
             :value="loading ? 'Loading' : 'Sign up'"
             :disabled="loading"
           />
@@ -22,13 +22,11 @@
 <script setup lang="ts">
   import { ref } from 'vue'
   import { supabase } from '@/supabase'
-  import { useRouter } from 'vue-router'
 
   const loading = ref(false)
   const email = ref('')
   const pass = ref('')
   const confPass = ref('')
-  const router = useRouter()
   const errorMsg = ref('');
 
 
@@ -44,10 +42,9 @@
           setTimeout(()=>errorMsg.value ='',5000)
           throw error
         } 
-        router.push({name: "Account"})
       } catch (error) {
         console.log(error);
-        
+
       }
       return; 
   }  

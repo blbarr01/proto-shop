@@ -1,75 +1,43 @@
 <template>
-    <div class="portal-header">
-        <h2>site Logo </h2>
-        <router-link to="/">back to home </router-link>
+    <div class="container" style="padding: 50px 0 100px 0">
+        <Account v-if="session" :session="session" />
+        <Auth v-else />
     </div>
-    <div class="form-container">
-        <RegistrationWidget v-if="portalToggle" />
-        <LoginWidget v-else="portalToggle" />
-    </div>
-    <div class="auth-widget">
-        <p @click="loginWithGoogle">or log in with google <span><font-awesome-icon :icon="['fab', 'google']" /></span></p>
-    </div>
-    <p> 
-        <span v-if="portalToggle">already have an account. </span>
-        <span v-else="portalToggle"> new?</span>
-        <span class="link" @click="portalToggle = !portalToggle"> click here</span>
-    </p>
     <SiteFooter />
 </template>
 
-<script setup lang="ts">
+<script setup>
 
-    import SiteFooter from '@/components/SiteFooter.vue';
-    import LoginWidget from './LoginWidget.vue';
-    import RegistrationWidget from './RegistrationWidget.vue';
-    import { supabase } from '@/supabase';
-    import { useAuth } from '@/stores/auth';
-    import { useRouter } from 'vue-router';
-    import { ref } from "vue"
-    import AccountView from '../AccountView.vue';
+import SiteFooter from '@/components/SiteFooter.vue';
+import { supabase } from '@/supabase';
+import { ref, onMounted } from "vue"
+import Account from './Account.vue';
+import Auth from './Auth.vue'
 
-    const router = useRouter()
-    const authStore = useAuth()
-    // if a user is already logged in send them to the account page
-    if(authStore.isAuthenticated) router.push({name: "Account"})
+const session = ref(); 
+onMounted(() => {
+  supabase.auth.getSession().then(({ data }) => {
+    session.value = data.session
+  })
 
-    async function loginWithGoogle(){
-        try {
-            let { data, error } = await supabase.auth.signInWithOAuth({
-                provider: 'google'
-            })        
-            if (error) {
-                throw error
-            }
-            
-            console.log(data);
-            authStore.isAuthenticated = true
-            router.push({name: "Account"})
-            
-        } catch (error) {
-            console.error(error)
-        }
+  supabase.auth.onAuthStateChange((_, _session) => {
+    session.value = _session
+  })
+})
 
-
-    }
-
-    const portalToggle = ref(true)
 </script>
 
 
-<style> 
+<style> .portal-header {
+     display: flex;
+     flex-direction: column;
+     gap: 1.5em;
+     justify-content: center;
+     align-items: center;
+     margin-top: 2em;
+ }
 
-.portal-header{
-    display: flex;
-    flex-direction: column;
-    gap: 1.5em;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2em;
-}
-
-.form-container {
+ .form-container {
      /* border: 2px solid magenta; */
      display: flex;
      justify-content: center;
@@ -77,49 +45,50 @@
      margin: 2em auto;
  }
 
-.auth-widget{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.auth-widget>p{
-    padding: .5em 1.25em;
-    border: 2px solid var(--color-border);
-    border-radius: .33rem;
-}
-
-.auth-widget>p:hover{
-    border-color: var(--color-border-hover);
-    cursor: pointer;
-}
-
- .link{
-    color: var(--brilliant-azure);
-    cursor: pointer;
+ .auth-widget {
+     display: flex;
+     justify-content: center;
+     align-items: center;
  }
- .widget-wrapper{
-    border: 2px solid var(--persian-rose-dull);  
-    border-radius: .33rem;
-    padding: 3em;
-  }
 
-  .form{
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-  }
+ .auth-widget>p {
+     padding: .5em 1.25em;
+     border: 2px solid var(--color-border);
+     border-radius: .33rem;
+ }
 
-  input{
-    background-color: var(--color-background-soft); 
-    color: var( --vt-c-text-dark-2);
-    border: none;
-    height: 2.25rem;
-    font-size: 1.25rem;
-  }
-  
-  input:focus {
-            outline: none;
-            border-bottom: 4px solid var(--persian-rose);
-        }
+ .auth-widget>p:hover {
+     border-color: var(--color-border-hover);
+     cursor: pointer;
+ }
+
+ .link {
+     color: var(--brilliant-azure);
+     cursor: pointer;
+ }
+
+ .widget-wrapper {
+     border: 2px solid var(--persian-rose-dull);
+     border-radius: .33rem;
+     padding: 3em;
+ }
+
+ .form {
+     display: flex;
+     flex-direction: column;
+     gap: 2em;
+ }
+
+ input {
+     background-color: var(--color-background-soft);
+     color: var(--vt-c-text-dark-2);
+     border: none;
+     height: 2.25rem;
+     font-size: 1.25rem;
+ }
+
+ input:focus {
+     outline: none;
+     border-bottom: 4px solid var(--persian-rose);
+ }
 </style>
