@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="product-gallery">
-      <ProductCard :product="product" v-for="product in filteredProducts" :key="product.id" />
+      <ProductCard :product="product" v-for="product in products" :key="product.id" />
     </div>
   </div>
 </template>
