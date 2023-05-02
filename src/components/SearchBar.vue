@@ -1,8 +1,8 @@
 <template>
-    <form action="" class="search-container">
-            <CategorySelector/>
-            <input  class="search-input" type="text" placeholder="search">
-            <button class="search-btn">
+    <form @submit.prevent="makeQuery(queryString)" class="search-container">
+            <CategorySelector @select-category="handleEmit"/>
+            <input  class="search-input" type="text" placeholder="search" v-model="queryString">
+            <button class="search-btn" type="submit">
               search <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
             </button>
     </form>
@@ -11,6 +11,21 @@
 
 <script setup lang="ts"> 
     import CategorySelector from './CategorySelector.vue';
+    import { ref } from "vue";
+
+    const queryString = ref('');
+    const category = ref(''); 
+
+    function makeQuery(text:string){
+      console.log("you made a query for", text);
+      
+    }
+
+    function handleEmit(selected:string){
+      console.log("log from the event emiiter", selected);
+      category.value = selected;
+    }
+
 </script>
 
 <style>

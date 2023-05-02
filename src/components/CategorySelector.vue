@@ -1,5 +1,10 @@
 <template>
-    <select name= "categories" id="category-selector" v-model="selected" placeholder="categories"> 
+    <select name= "categories" 
+    id="category-selector" 
+    v-model="selected" 
+    placeholder="categories" 
+    @change="$emit('selectCategory', selected)"> 
+    <!-- out custom event passes the selected value up to the search -->
         <option disabled value="">categories</option> <!--recommended for ios compatibility per vue documentation-->
         <option v-for="category in categories">{{ category }}</option>
    </select>            
@@ -10,7 +15,9 @@
     const selected = ref('');
     const response = await fetch('https://dummyjson.com/products/categories')
     const categories = await response.json();
-    console.log(categories);
+
+    //define a custom event for use in the template
+    const emits = defineEmits(['selectCategory'])
     
 </script>
 
