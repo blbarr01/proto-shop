@@ -1,10 +1,11 @@
+<!-- our custom event passes the selected value up to the searchbar component
+whenever there is a change event -->
 <template>
-    <select name= "categories" 
+    <select name="categories" 
     id="category-selector" 
     v-model="selected" 
     placeholder="categories" 
     @change="$emit('selectCategory', selected)"> 
-    <!-- out custom event passes the selected value up to the search -->
         <option disabled value="">categories</option> <!--recommended for ios compatibility per vue documentation-->
         <option v-for="category in categories">{{ category }}</option>
    </select>            

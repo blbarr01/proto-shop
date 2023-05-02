@@ -12,13 +12,15 @@
 <script setup lang="ts"> 
     import CategorySelector from './CategorySelector.vue';
     import { ref } from "vue";
+    import emitter from "@/events"
+
+    
 
     const queryString = ref('');
     const category = ref(''); 
 
     function makeQuery(text:string){
-      console.log("you made a query for", text);
-      
+      emitter.emit("update-fetch",{category: category.value, query: text})
     }
 
     function handleEmit(selected:string){

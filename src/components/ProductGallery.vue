@@ -10,11 +10,18 @@
 import ProductCard from './ProductCard.vue'
 import type Product from '@/types/product'
 import {baseURL} from "@/endpoint"
+import emitter from "@/events"
+
+
+emitter.on("*", (e, data)=>{
+  console.log("my emmit says:", data);
+})
+
 
 const response = await fetch(baseURL)
 const data = await response.json()
 const products: Product[] = data.products
-
+const emmits = defineEmits(['update-fetch'])
 
 </script>
 
