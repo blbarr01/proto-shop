@@ -12,24 +12,28 @@ import type Product from '@/types/product'
 import type EventData from '@/types/eventData'
 import {baseURL} from "@/endpoint"
 import emitter from "@/events"
-import { onMounted, ref } from 'vue'
+import { onMounted, ref} from 'vue'
 
 
-const products = ref(<Product[]>[]); 
+let products = ref(<Product[]>[]); 
 
-emitter.on("*", (e, data)=>{
+emitter.on("*", async (e, data)=>{
   if (e ==='update-fetch') {
-  fetchProducts(<EventData>data)    
+  products.value = await fetchProducts(<EventData>data)    
   } 
 })
 
 async function fetchProducts(eventData?:EventData){
+  let extendedUrl = ''
   if (eventData) {
-    var {category, query} = eventData
-    console.log(category, query);
-    
-  }       
-  const response = await fetch(baseURL);
+    let {category, query} = eventData
+    if(query || (query && category))extendedUrl+=`/search?q=${query}`
+    else if(category && !query) extendedUrl+=`/category/${category}`
+  }  
+  
+  const searchUrl= baseURL.concat(extendedUrl)
+  console.log(searchUrl);
+  const response = await fetch(searchUrl);
   const data = await response.json();
   const products: Product[] = data.products;
   return products;
