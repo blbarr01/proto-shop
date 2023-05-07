@@ -1,6 +1,9 @@
 <template>
   <header>
-    <h1>{{ title }}</h1>
+    <!--<h1>{{ title }}</h1>-->
+    <h1>
+      <img src="https://see.fontimg.com/api/renderfont4/K7vpp/eyJyIjoiZnMiLCJoIjo4MywidyI6MTUwMCwiZnMiOjU1LCJmZ2MiOiIjRkYwQTY4IiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/dGhlIHByb3RvIHNob3A/bazer.png" alt="Cyberpunk fonts" class ="tImage">
+    </h1>
         <SiteNav/>
     </header>
     <div class="searchbar">
@@ -26,7 +29,7 @@ import SearchBar from './SearchBar.vue';
 import SiteNav from './SiteNav.vue';
 import CartWidget from './CartWidget.vue';
 import { ref } from 'vue'
-const title = ref('The Proto Shop')
+//const title = ref('The Proto Shop')
 const displaySearch = ref(false); 
 const showSearch = () => {displaySearch.value = !displaySearch.value; console.log(displaySearch.value);
 }
@@ -34,9 +37,12 @@ const showSearch = () => {displaySearch.value = !displaySearch.value; console.lo
 </script>
 
 <style scoped>
-h1 {
-  text-align: center;
-  font-size: 4.5rem;
+h1{
+  padding: 20px;
+}
+.tImage{
+        max-width: 100%;
+        height: auto;
 }
 
 header {
@@ -109,6 +115,7 @@ span{
     right: 80px;
     top: 80px;
   }
+  
 }
 
 

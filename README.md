@@ -12,7 +12,14 @@ project members:
 - Amarindar Singh
 - Nathalie Tivar
 
-
+concepts used within the project:
+ -responsive design 
+ -components 
+ -state management
+ -promise handling 
+    -async/await
+ -auth 
+ 
 ## Project Setup
 
 ```sh
