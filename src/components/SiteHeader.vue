@@ -2,7 +2,9 @@
   <header>
     <!--<h1>{{ title }}</h1>-->
     <h1>
+    <RouterLink to="/" class="title-link">
       <img src="https://see.fontimg.com/api/renderfont4/K7vpp/eyJyIjoiZnMiLCJoIjo4MywidyI6MTUwMCwiZnMiOjU1LCJmZ2MiOiIjRkYwQTY4IiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/dGhlIHByb3RvIHNob3A/bazer.png" alt="Cyberpunk fonts" class ="tImage">
+    </RouterLink>
     </h1>
         <SiteNav/>
     </header>
@@ -24,10 +26,10 @@
 </template>
 
 <script setup lang="ts">
-import type CartWidgetVue from './CartWidget.vue';
 import SearchBar from './SearchBar.vue';
 import SiteNav from './SiteNav.vue';
 import CartWidget from './CartWidget.vue';
+import { RouterLink } from 'vue-router';
 import { ref } from 'vue'
 //const title = ref('The Proto Shop')
 const displaySearch = ref(false); 
@@ -39,7 +41,14 @@ const showSearch = () => {displaySearch.value = !displaySearch.value; console.lo
 <style scoped>
 h1{
   padding: 20px;
+  
 }
+
+.title-link:hover{
+  border-bottom: unset;
+  box-shadow:0.4em 0.4em 2em var(--brilliant-azure);
+}
+
 .tImage{
         max-width: 100%;
         height: auto;
