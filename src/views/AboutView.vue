@@ -1,83 +1,48 @@
 <template>
   <Header />
 
-  <div class ="crew">
-      <h2>Meet the crew!</h2>
-    </div>
+  <div class="crew">
+    <h2>Meet the crew!</h2>
+  </div>
 
   <div class="container">
-  
-
-      <div class="team-wrapper">
-        <img src="https://hdegohahwlnmtyaygpes.supabase.co/storage/v1/object/sign/avatars/0.6339180005694327.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJhdmF0YXJzLzAuNjMzOTE4MDAwNTY5NDMyNy53ZWJwIiwiaWF0IjoxNjgzNDIxNTAwLCJleHAiOjE3MTQ5NTc1MDB9.wULdtcthtdExKqS_9ITqg4vzdBx0Myacri8T_jR6RHY&t=2023-05-07T01%3A05%3A00.384Z" class="img-responsive" alt="team img">
-        <h3>Brian Barr</h3>
-        <h4>Project Lead</h4>
-        <p>Department of Computer Science</p>
-        <p>California State University, Northridge</p>
-        <a href="https://github.com/blbarr01">Github</a>
-        <a href="https://www.linkedin.com/in/brian-barr-6a27a0161/"> linkedin</a>
-      </div>
-      <div class="team-wrapper">
-        <img src="temp.jpg" class="img-responsive" alt="team img">
-        <h3>Amarinder Singh</h3>
-        <h4>Software Engineer</h4>
-        <p>Computer Sience graduate</p>
-        <p>California State University - Northridge</p>
-        <a href="https://github.com/jareedos">Github</a>
-        <a href="https://www.linkedin.com/in/jaredsobol/"> Linkedin</a>
-      </div>
-    
-      <div class="team-wrapper">
-        <img src="temp.jpg" class="img-responsive" alt="team img">
-        <h3>Jian He</h3>
-        <h4>Software Engineer</h4>
-        <p>Computer Sience graduate</p>
-        <p>California State University - Northridge</p>
-        <a href="https://github.com/jareedos">Github</a>
-        <a href="https://www.linkedin.com/in/jaredsobol/"> Linkedin</a>
-      </div>
-      <div class="team-wrapper">
-        <img src="temp.jpg" class="img-responsive" alt="team img">
-        <h3>Amarinder Singh</h3>
-        <h4>Software Engineer</h4>
-        <p>Computer Sience graduate</p>
-        <p>California State University - Northridge</p>
-        <a href="https://github.com/jareedos">Github</a>
-        <a href="https://www.linkedin.com/in/jaredsobol/"> Linkedin</a>
-      </div>
-      <div class="team-wrapper">
-        <img src="temp.jpg" class="img-responsive" alt="team img">
-        <h3>Amarinder Singh</h3>
-        <h4>Software Engineer</h4>
-        <p>Computer Sience graduate</p> 
-        <p>California State University - Northridge</p>
-        <a href="https://github.com/jareedos">Github</a>
-        <a href="https://www.linkedin.com/in/jaredsobol/"> Linkedin</a>
-      </div>
-     
+    <div class="team-wrapper" v-for="member in team" :key="member.name">
+      <img :src="member.image" class="img-responsive" alt="team img">
+      <h3>{{ member.name }}</h3>
+      <h4>{{ member.role }}</h4>
+      <a :href="member.github_link">Github</a>
+      <a :href="member.linkedin_link">LinkedIn</a>
+    </div>
   </div>
-    <Footer />
+
+  <Footer />
 </template>
 
 <script lang="ts" setup>
 import Header from '@/components/SiteHeader.vue'
 import Footer from '@/components/SiteFooter.vue'
+import { ref, onMounted } from 'vue'
 import { supabase } from '@/supabase'
 
-try {
-  let { data: team, error } = await supabase
-  .from('team')
-  .select('*')
-console.log(team);  
-if (error) throw error
-} catch (error) {
-  console.error(error);
-  
+interface TeamMember {
+  name: string
+  role: string
+  image: string
+  github_link: string
+  linkedin_link: string
 }
 
+const team = ref<TeamMember[]>([])
 
-
-
+onMounted(async () => {
+  try {
+    const { data, error } = await supabase.from('team').select('*')
+    if (error) throw error
+    team.value = data as TeamMember[]
+  } catch (error) {
+    console.error(error)
+  }
+})
 </script>
 
 <style lang="css" scoped>
