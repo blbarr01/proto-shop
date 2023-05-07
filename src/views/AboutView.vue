@@ -10,8 +10,10 @@
       <img :src="member.image" class="img-responsive" alt="team img">
       <h3>{{ member.name }}</h3>
       <h4>{{ member.role }}</h4>
-      <a :href="member.github_link">Github</a>
-      <a :href="member.linkedin_link">LinkedIn</a>
+      <p>Computer Sience graduate</p>
+      <p>California State University - Northridge</p>
+      <a :href="member.github_link"> Github</a>
+      <a :href="member.linkedin_link"> LinkedIn</a>
     </div>
   </div>
 
