@@ -11,7 +11,7 @@
                 <RouterLink to="/contact"> Contact </RouterLink>
             </li>
             <li>
-                <RouterLink class="nav-item" to="/portal">
+                <RouterLink class="nav-item profile" to="/portal">
                     <font-awesome-icon :icon="['fas', 'circle-user']" />
                 </RouterLink>
             </li>
@@ -38,6 +38,44 @@ import { RouterLink } from 'vue-router';
 .nav-item {
     font-size: 1.75rem;
 }
+
+@media screen and (max-width: 1075px) {
+    .nav-list {
+        flex-direction: column;
+        gap: 1em;
+        margin: 1em auto;
+        align-items: center; /* Added align-items property */
+        padding-right: 40px;
+       
+    }
+
+    .nav-item {
+        font-size: 1.25rem; /* Changed from 1.5rem to 1.25rem */
+
+    }
+    .profile {
+        font-size: 1.75rem; /* Changed from 1.5rem to 1.25rem */
+
+    }
+}
+
+@media screen and (max-width: 645px) {
+    .nav-list {
+        gap: 0.5em;
+        margin: 0.5em auto;
+        align-items: center; /* Added align-items property */
+    }
+
+    .nav-item {
+        font-size: 1rem; /* Changed from 1.25rem to 1rem */
+    }
+    .profile {
+        font-size: 1.75rem; /* Changed from 1.5rem to 1.25rem */
+
+    }
+}
+
+
 </style>
 
 
