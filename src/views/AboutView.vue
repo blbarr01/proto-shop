@@ -68,8 +68,8 @@ try {
   let { data: team, error } = await supabase
   .from('team')
   .select('*')
-console.log(team);  
-if (error) throw error
+  console.log(team);  
+  if (error) throw error
 } catch (error) {
   console.error(error);
   
