@@ -9,7 +9,7 @@
   
 
       <div class="team-wrapper">
-        <img src="temp.jpg" class="img-responsive" alt="team img">
+        <img src="https://hdegohahwlnmtyaygpes.supabase.co/storage/v1/object/sign/avatars/0.6339180005694327.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJhdmF0YXJzLzAuNjMzOTE4MDAwNTY5NDMyNy53ZWJwIiwiaWF0IjoxNjgzNDIxNTAwLCJleHAiOjE3MTQ5NTc1MDB9.wULdtcthtdExKqS_9ITqg4vzdBx0Myacri8T_jR6RHY&t=2023-05-07T01%3A05%3A00.384Z" class="img-responsive" alt="team img">
         <h3>Brian Barr</h3>
         <h4>Project Lead</h4>
         <p>Department of Computer Science</p>
@@ -49,7 +49,7 @@
         <img src="temp.jpg" class="img-responsive" alt="team img">
         <h3>Amarinder Singh</h3>
         <h4>Software Engineer</h4>
-        <p>Computer Sience graduate</p>
+        <p>Computer Sience graduate</p> 
         <p>California State University - Northridge</p>
         <a href="https://github.com/jareedos">Github</a>
         <a href="https://www.linkedin.com/in/jaredsobol/"> Linkedin</a>
@@ -62,6 +62,22 @@
 <script lang="ts" setup>
 import Header from '@/components/SiteHeader.vue'
 import Footer from '@/components/SiteFooter.vue'
+import { supabase } from '@/supabase'
+
+try {
+  let { data: team, error } = await supabase
+  .from('team')
+  .select('*')
+console.log(team);  
+if (error) throw error
+} catch (error) {
+  console.error(error);
+  
+}
+
+
+
+
 </script>
 
 <style lang="css" scoped>
