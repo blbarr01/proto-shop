@@ -1,14 +1,14 @@
 <template>
     <nav>
         <ul class="nav-list">
-            <li class="nav-item">
-                <RouterLink to="/"> Home </RouterLink>
+            <li >
+                <RouterLink class="nav-item" to="/"> Home </RouterLink>
             </li>
-            <li class="nav-item">
-                <RouterLink to="/about"> About </RouterLink>
+            <li >
+                <RouterLink class="nav-item" to="/about"> About </RouterLink>
             </li>
-            <li class="nav-item">
-                <RouterLink to="/contact"> Contact </RouterLink>
+            <li >
+                <RouterLink class="nav-item" to="/contact"> Contact </RouterLink>
             </li>
             <li>
                 <RouterLink class="nav-item profile" to="/portal">
@@ -37,6 +37,11 @@ import { RouterLink } from 'vue-router';
 
 .nav-item {
     font-size: 1.75rem;
+}
+
+.nav-item:hover{
+    color: var(--web-gold);
+    border-bottom: 2px solid var(--web-gold);
 }
 
 @media screen and (max-width: 1075px) {

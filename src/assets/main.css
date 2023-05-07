@@ -9,19 +9,13 @@
 a{
   text-decoration: none;
   color:  var(--brilliant-azure);
-  transition: 0.4s;
 }
 
 .clickable{
   cursor: pointer;
 }
 
-@media (hover: hover) {
-  a:hover {
-    color: var(--web-gold);
-    border-bottom: 2px solid var(--web-gold);
-  }
-}
+
 
 @media (min-width: 1024px) {
   body {
