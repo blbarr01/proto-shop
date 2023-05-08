@@ -21,7 +21,7 @@
 </template>
 
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 import { supabase } from '@/supabase'
 import Login from './LoginWidget.vue'
