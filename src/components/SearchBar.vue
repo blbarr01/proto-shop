@@ -57,7 +57,9 @@
 }
 
 
-.search-input:focus, .search-btn:focus{
+.search-input:focus, 
+.search-btn:focus,
+.search-btn:hover{
   outline: none;
   box-shadow:0.4em 0.4em 2em var(--brilliant-azure);
 }
