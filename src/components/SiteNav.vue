@@ -2,13 +2,13 @@
     <nav>
         <ul class="nav-list">
             <li >
-                <RouterLink class="nav-item" to="/"> Home </RouterLink>
+                <RouterLink class="nav-item" to="/">Home</RouterLink>
             </li>
             <li >
-                <RouterLink class="nav-item" to="/about"> About </RouterLink>
+                <RouterLink class="nav-item" to="/about">About</RouterLink>
             </li>
             <li>
-                <RouterLink class="nav-item" to="/project-details"> Project Details </RouterLink>
+                <RouterLink class="nav-item" to="/project-details">Project Details</RouterLink>
             </li>
             <li>
                 <RouterLink class="nav-item profile" to="/portal">
@@ -22,10 +22,6 @@
 
 <script lang='ts' setup>
 import { RouterLink } from 'vue-router';
-import router from '@/router';
-
-console.log(router.getRoutes());
-
 </script>
 
 <style>
