@@ -7,8 +7,8 @@
             <li >
                 <RouterLink class="nav-item" to="/about"> About </RouterLink>
             </li>
-            <li class="nav-item">
-                <RouterLink to="/project-details"> Project Details </RouterLink>
+            <li>
+                <RouterLink class="nav-item" to="/project-details"> Project Details </RouterLink>
             </li>
             <li>
                 <RouterLink class="nav-item profile" to="/portal">
@@ -22,6 +22,10 @@
 
 <script lang='ts' setup>
 import { RouterLink } from 'vue-router';
+import router from '@/router';
+
+console.log(router.getRoutes());
+
 </script>
 
 <style>
