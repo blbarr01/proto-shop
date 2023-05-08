@@ -6,12 +6,12 @@
     <SiteFooter />
 </template>
 
-<script setup>
+<script setup lang="ts">
 
 import SiteFooter from '@/components/SiteFooter.vue';
 import { supabase } from '@/supabase';
 import { ref, onMounted } from "vue"
-import Account from './Account.vue';
+import Account from "@/views/UserPortalView/Account.vue";
 import Auth from './Auth.vue'
 
 const session = ref(); 

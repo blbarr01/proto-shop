@@ -7,8 +7,8 @@
             <li >
                 <RouterLink class="nav-item" to="/about"> About </RouterLink>
             </li>
-            <li >
-                <RouterLink class="nav-item" to="/contact"> Contact </RouterLink>
+            <li class="nav-item">
+                <RouterLink to="/project-details"> Project Details </RouterLink>
             </li>
             <li>
                 <RouterLink class="nav-item profile" to="/portal">

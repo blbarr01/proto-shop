@@ -1,4 +1,4 @@
-<script setup >
+<script setup lang="ts">
 import { supabase } from '@/supabase'
 import { onMounted, ref, toRefs } from 'vue'
 import Avatar from '@/components/Avatar.vue'
@@ -23,7 +23,7 @@ async function getProfile() {
       .eq('id', user.id)
       .single()
 
-    if (error && status !== 406) throw error
+    if (error instanceof Error && status !== 406) throw error
 
     if (data) {
       username.value = data.username
