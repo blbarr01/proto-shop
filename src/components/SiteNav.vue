@@ -49,17 +49,17 @@ import { RouterLink } from 'vue-router';
         flex-direction: column;
         gap: 1em;
         margin: 1em auto;
-        align-items: center; /* Added align-items property */
+        align-items: center; /*  align-items property */
         padding-right: 40px;
        
     }
 
     .nav-item {
-        font-size: 1.25rem; /* Changed from 1.5rem to 1.25rem */
+        font-size: 1.25rem;
 
     }
     .profile {
-        font-size: 1.75rem; /* Changed from 1.5rem to 1.25rem */
+        font-size: 1.75rem; 
 
     }
 }
@@ -68,14 +68,14 @@ import { RouterLink } from 'vue-router';
     .nav-list {
         gap: 0.5em;
         margin: 0.5em auto;
-        align-items: center; /* Added align-items property */
+        align-items: center; /*  align-items property */
     }
 
     .nav-item {
-        font-size: 1rem; /* Changed from 1.25rem to 1rem */
+        font-size: 1rem; 
     }
     .profile {
-        font-size: 1.75rem; /* Changed from 1.5rem to 1.25rem */
+        font-size: 1.75rem; 
 
     }
 }
