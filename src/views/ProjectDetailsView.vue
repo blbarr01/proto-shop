@@ -24,8 +24,8 @@
         
 				<div class="description">
 					<h3>Back End</h3>
-					<p>the team decided to use the Google suite of products offered though <a href="https://supabase.com/docs"> Supabase</a>
-						This includes: 
+					<p>the team decided to use backend database <a href="https://supabase.com/docs"> Supabase</a>
+						Which includes: 
 					</p>
 					<ul>
 						<li>
@@ -51,7 +51,7 @@
 		<div class="Design">
 			<div class="">
 			<h1 class="title">Site design </h1>
-			<p> site description</p>
+			
 		</div>
 			<div class="image-data">
 				<img src="@/assets/Images/siteDiagram.png" class="site-pic" alt="about img">
