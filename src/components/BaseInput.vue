@@ -29,3 +29,8 @@
     
 </script>
 
+<style>
+    label{
+        display: none;
+    }
+</style>

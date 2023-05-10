@@ -4,6 +4,14 @@
         label="street"
         v-model="street"
         />
+        <BaseInput 
+        label="City"
+        v-model="city"
+        />
+        <BaseInput 
+        label="zip"
+        v-model="zip"
+        />
     </form>        
 </template>
 
@@ -22,5 +30,9 @@ const {street, city, zip , state} = address;
 </script>
 
 <style lang="css" scoped>
-
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+    }
 </style>
