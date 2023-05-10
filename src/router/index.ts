@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/HomeView.vue'
 import About from '@/views/AboutView.vue'
-import Checkout from '@/views/CheckoutView.vue'
+import Checkout from '@/views/CheckoutView/index.vue'
 import ProjectDetails from '@/views/ProjectDetailsView.vue'
 import Product from '@/views/ProductView/index.vue'
 import UserPortal from "@/views/UserPortalView/index.vue"
