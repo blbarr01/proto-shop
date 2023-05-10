@@ -1,31 +1,26 @@
 <template>
-  <Header />
-  <h1 class="title">Tech Stack</h1>
- 
-
-  <div class="about">
-		<div class="tech-stack">
+	<Header />
+	<main class="about">
+		<section class="tech-stack">
+			<h2 class="title">Tech Stack</h2>
 			<div class="row">
 				<div class="image">
 					<img src="@/assets/Images/Vue.js_Logo_2.svg.png" class="img-responsive" alt="about img">
 				</div>
-
 				<div class="description">
 					<h3>Front End</h3>
-					<p>the project front end was implemented using the <a href="https://angular.io/">Vue</a>  framework and <a href="https://dummyjson.com/">Dummyjson</a> API </p>
+					<p>the project front end was implemented using the <a href="https://angular.io/">Vue</a> framework</p>
 				</div>
-        
 			</div>
 			<div class="row">
-
 				<div class="image">
-          <img src="@/assets/Images/supabase.jpg" class="img-responsive" alt="about img">
+					<img src="@/assets/Images/supabase.jpg" class="img-responsive" alt="about img">
 				</div>
-        
+
 				<div class="description">
 					<h3>Back End</h3>
 					<p>the team decided to use backend database <a href="https://supabase.com/docs"> Supabase</a>
-						Which includes: 
+						Which includes:
 					</p>
 					<ul>
 						<li>
@@ -34,34 +29,32 @@
 						<li>
 							cloud storage
 						</li>
-					
+						<li>
+							postgreSQL database
+						</li>
+						<li>
+							edge functions
+						</li>
 					</ul>
-					
-				
 				</div>
 			</div>
-		</div>
-		<div class="data">
-			<h1 class="title ">Data Modeling</h1>
-			<p> Data modeling is the process of creating a conceptual representation of data and its relationships to support efficient storage, retrieval, and manipulation.</p>
+		</section>
+		<section class="data">
+			<h2 class="title ">Data Modeling</h2>
+			<p> Data modeling is the process of creating a conceptual representation of data and its relationships to
+				support efficient storage, retrieval, and manipulation.</p>
 			<div class="image-data">
 				<img src="@/assets/Images/db.png" class="data-pic" alt="about img">
 			</div>
-		</div>
-		<div class="Design">
-			<div class="">
-			<h1 class="title">Site design </h1>
-			
-		</div>
+		</section>
+		<section class="Design">
+			<h2 class="title">Site design </h2>
 			<div class="image-data">
 				<img src="@/assets/Images/siteDiagram.png" class="site-pic" alt="about img">
 			</div>
-		</div>
-	</div> 
-
-
-
-  <Footer />
+		</section>
+	</main>
+	<Footer />
 </template>
   
 <script lang="ts" setup>
@@ -73,104 +66,108 @@ import { ref } from 'vue';
 </script>
 
 <style lang="css" scoped>
+/* follows desktop first principles */
 .title {
-  text-align: center;
+	text-align: center;
 }
 
 .img-responsive {
-  height: 300px;
+	height: 300px;
 }
 
 .row {
-  display: flex;
-  justify-content: center;
- 
+	display: flex;
+	justify-content: center;
 
- 
+
+
 }
 
-.row > .image,
-.row > .description {
-  flex: 1; /* Equal width for both image and description */
-  
+.row>.image,
+.row>.description {
+	flex: 1;
+	/* Equal width for both image and description */
+
 }
 
 .description {
-  text-align: start;
-  background-color: rgb(48, 46, 46);
-  padding: 20px;
+	text-align: start;
+	background-color: rgb(48, 46, 46);
+	padding: 20px;
 }
 
 .tech-stack {
-  display: flex;
-  justify-content: center;
-  flex-direction: column; /* Stack rows vertically */
-  padding: 50px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	/* Stack rows vertically */
+	padding: 50px;
 }
-.image-data
-{
- text-align: center;
+
+.image-data {
+	text-align: center;
 }
-.description
-{
-padding-right: 100px;
+
+.description {
+	padding-right: 100px;
 }
-.data-pic
-{
+
+.data-pic {
 	padding: 50px 0px;
 	height: 900px;
 	width: 1150px;
 }
-.site-pic
-{
+
+.site-pic {
 	padding: 50px 0px;
 	height: 1300px;
 	width: 1150px;
 }
-p
-{
-	padding-left: 20px;;
+
+p {
+	padding-left: 20px;
+	;
 	font-size: 20px;
 }
 
 @media (max-width: 1150px) {
-  .row {
-    flex-direction: column;
-	
-  }
+	.row {
+		flex-direction: column;
 
-  .description {
-    padding-right: 0; 
-  }
+	}
 
-  .data-pic {
-    height: auto; 
-    width: 100%; 
-  }
+	.description {
+		padding-right: 0;
+	}
 
-  .site-pic {
-    height: auto; 
-    width: 100%;
-  }
+	.data-pic {
+		height: auto;
+		width: 100%;
+	}
 
-  p {
-    padding-left: 0; 
-    font-size: 18px; 
-  }
-  .image
-  {
-	text-align: center;
-  }
+	.site-pic {
+		height: auto;
+		width: 100%;
+	}
+
+	p {
+		padding-left: 0;
+		font-size: 18px;
+	}
+
+	.image {
+		text-align: center;
+	}
 }
+
 @media (max-width: 470px) {
-  .row {
-    flex-direction: column;
-	padding: 0px 0px;
-  }
-  .img-responsive
-  {
-	height: 200px;
-  }
-}
+	.row {
+		flex-direction: column;
+		padding: 0px 0px;
+	}
 
+	.img-responsive {
+		height: 200px;
+	}
+}
 </style>
