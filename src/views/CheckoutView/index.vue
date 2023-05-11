@@ -1,28 +1,13 @@
 <template>
-    <Header/>
-        <div>
-            <p>
-            $CheckoutView.vue -- cart -- need to fill out the checkout page;<br> 
-            we need <br>
-            - a form for user to enter credit card / shipping info<br>
-            (checkout stripe and vue utils)<br>
-            - a CheckoutItem component which will be used to list items<br>
-            (reference relation between ProductGallery.vue & ProductCard.vue)<br>  
-            in user's cart(stored in pinia)<br>
-            </p>
-            <p>
-                forms need to be made and styled
-            </p>
+    <Header />
+    <main class="grid-wrapper">
+        <div class="cart-list">
+            <CartItem v-for="cartItem in cart" :item="cartItem" />
         </div>
-        <main>
-            <div class="cart-list">
-                <CartItem v-for="cartItem in cart" :item="cartItem"/>
-            </div>
-            <div class="form-area">
-                <AddressForm/>
-            </div>
-            <pre>{{ cart }}</pre>
-        </main>
+        <div class="form-area">
+            <AddressForm />
+        </div>
+    </main>
     <Footer />
 </template>
 
