@@ -46,8 +46,7 @@
         width: 150px;
         object-fit: cover;
         border: 1px solid  var(--color-border);
-        border-radius: 
-        .33rem;
+        border-radius: .33rem;
     }
 
     .small-img:hover{

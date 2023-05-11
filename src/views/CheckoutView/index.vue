@@ -40,11 +40,10 @@ import { useCartStore } from '@/stores/cart'
 
 const cartStore = useCartStore()
 
-const {cart} = storeToRefs(cartStore)
+const { cart } = storeToRefs(cartStore)
 console.log(cart.value);
 
 
-const n = 3;
 
 
 </script>
@@ -57,32 +56,16 @@ const n = 3;
     }
 
     main{
-        display:grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: auto;
-        border: 2px solid red;
-        gap: 2em;
     }
-    form{
-        grid-column: 4;
+    .form-area, .cart-list {
+        grid-column: span 2;
     }
-    .form-area{
-        grid-column:3/-1;
-        /*grid-column: 1 / span 2;
-        grid-column-start: 4;
-        grid-column-end: 5;*/
+}
 
-        background-color: rgba(84, 84, 84, 0.48);
-        padding: 5px 20px 15px 20px;
-        border: 2px solid var(--accent-clr);
-        border-radius: 33px;
-    }
-    .cart-list {
-        background-color: rgba(84, 84, 84, 0.48);
-        padding: 5px 20px 15px 20px;
-        border: 2px solid var(--accent-clr);
-        border-radius: 33px;
-
+@media screen and (min-width: 1081px) {
+    main{
+        min-height: 60vh;
     }
     .TitleC{
         grid-column: span 4;
