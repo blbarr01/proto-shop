@@ -16,6 +16,7 @@ import Header from '@/components/SiteHeader.vue'
 import Footer from '@/components/SiteFooter.vue'
 import AddressForm from './AddressForm.vue';
 import CartItem from '@/components/CartItem.vue';
+import PaymentForm from './PaymentForm.vue';
 import { storeToRefs } from 'pinia';
 import { useCartStore } from '@/stores/cart'
 
@@ -30,22 +31,12 @@ console.log(cart.value);
 </script>
 
 <style scoped>
-main {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: auto;
-    border: 2px solid red;
-    gap: 2em;
-    margin-top: 2em;
-    max-width: 1280px;
-}
+    
+    .Pagecontainer{
+        padding: 40px;
+        gap: 20px;
+    }
 
-.form-area, .cart-list {
-    grid-column: span 1;
-}
-
-
-@media screen and (min-width: 631px) {
     main{
         grid-template-columns: repeat(4, 1fr);
     }
@@ -58,5 +49,41 @@ main {
     main{
         min-height: 60vh;
     }
+    .TitleC{
+        grid-column: span 4;
+        text-align: center;
+        padding: 40px 15px;
+        gap: 20px;
+    }
+    img{
+        height: auto;
+        max-width: 100%;
+    }
+    h2{
+        color:#F62E97;
+        font-weight: bold;
+    }
+    
+.btn {
+  grid-column: span 4;
+
+  background: linear-gradient( 135deg , #F62E97 0%, #38A6F3 100%);
+  color: white;
+  padding: 10px;
+  width: 100%;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+    border: 2px solid var(--accent-clr-hover);
+  box-shadow: 
+    inset 0 -0.5em 0.3em var(--accent-clr), 
+    0.3em 0.3em 1em var(--accent-clr-hover),
+    0.4em 0.4em 2em var(--brilliant-azure),
+    0.5em 0.5em 3em var(--web-gold), 
+    0.6em 0.6em 3em var(--accent-clr-hover) 
+    ;
 }
 </style>
