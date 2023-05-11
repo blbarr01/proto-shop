@@ -11,8 +11,11 @@
             <p> <span class="dollar">$</span>{{ product.price }}</p>
             <p>first time buyer discount:</p>
             <p><span class="dollar">$</span>{{ discountedPrice }}</p>
-            <p>average rating: {{ product.rating }} <span class="web-gold"><font-awesome-icon
-                        :icon="['fas', 'star']" /></span></p>
+            <p>average rating: {{ product.rating }} 
+                <span class="web-gold">
+                    <font-awesome-icon :icon="['fas', 'star']" />
+                </span>
+            </p>
             <div class="btn-container">
                 <button class="azure">add to cart</button>
                 <button class="rus-violet">buy now</button>
