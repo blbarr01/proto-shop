@@ -1,13 +1,28 @@
 <template>
-    <Header />
-    <main class="grid-wrapper">
-        <div class="cart-list">
-            <CartItem v-for="cartItem in cart" :item="cartItem" />
+    <Header/>
+        <div>
+            <p>
+            $CheckoutView.vue -- cart -- need to fill out the checkout page;<br> 
+            we need <br>
+            - a form for user to enter credit card / shipping info<br>
+            (checkout stripe and vue utils)<br>
+            - a CheckoutItem component which will be used to list items<br>
+            (reference relation between ProductGallery.vue & ProductCard.vue)<br>  
+            in user's cart(stored in pinia)<br>
+            </p>
+            <p>
+                forms need to be made and styled
+            </p>
         </div>
-        <div class="form-area">
-            <AddressForm />
-        </div>
-    </main>
+        <main>
+            <div class="cart-list">
+                <CartItem v-for="cartItem in cart" :item="cartItem"/>
+            </div>
+            <div class="form-area">
+                <AddressForm/>
+            </div>
+            <pre>{{ cart }}</pre>
+        </main>
     <Footer />
 </template>
 
@@ -22,68 +37,32 @@ import { useCartStore } from '@/stores/cart'
 
 const cartStore = useCartStore()
 
-const { cart } = storeToRefs(cartStore)
+const {cart} = storeToRefs(cartStore)
 console.log(cart.value);
 
 
+const n = 3;
 
 
 </script>
 
 <style scoped>
-    
-    .Pagecontainer{
-        padding: 40px;
-        gap: 20px;
+    main{
+        display:grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+        border: 2px solid red;
+        gap: 2em;
     }
 
-    main{
-        grid-template-columns: repeat(4, 1fr);
-    }
-    .form-area, .cart-list {
+    .form-area{
+        border: 2px solid greenyellow;
         grid-column: span 2;
     }
-}
+    .cart-list{
+        border: 2px solid magenta;
+        grid-column: span 2;
 
-@media screen and (min-width: 1081px) {
-    main{
-        min-height: 60vh;
     }
-    .TitleC{
-        grid-column: span 4;
-        text-align: center;
-        padding: 40px 15px;
-        gap: 20px;
-    }
-    img{
-        height: auto;
-        max-width: 100%;
-    }
-    h2{
-        color:#F62E97;
-        font-weight: bold;
-    }
-    
-.btn {
-  grid-column: span 4;
 
-  background: linear-gradient( 135deg , #F62E97 0%, #38A6F3 100%);
-  color: white;
-  padding: 10px;
-  width: 100%;
-  border-radius: 50px;
-  cursor: pointer;
-  font-size: 17px;
-}
-
-.btn:hover {
-    border: 2px solid var(--accent-clr-hover);
-  box-shadow: 
-    inset 0 -0.5em 0.3em var(--accent-clr), 
-    0.3em 0.3em 1em var(--accent-clr-hover),
-    0.4em 0.4em 2em var(--brilliant-azure),
-    0.5em 0.5em 3em var(--web-gold), 
-    0.6em 0.6em 3em var(--accent-clr-hover) 
-    ;
-}
 </style>
