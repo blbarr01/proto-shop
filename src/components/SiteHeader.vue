@@ -5,13 +5,13 @@
       <RouterLink to="/" class="title-link">
         <img
           src="https://see.fontimg.com/api/renderfont4/K7vpp/eyJyIjoiZnMiLCJoIjo4MywidyI6MTUwMCwiZnMiOjU1LCJmZ2MiOiIjRkYwQTY4IiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/dGhlIHByb3RvIHNob3A/bazer.png"
-          alt="Cyberpunk fonts" class="tImage">
+          alt="Proto Shop" class="tImage">
       </RouterLink>
     </h1>
     <SiteNav />
   </header>
   <div class="searchbar">
-    <SearchBar v-if="displaySearch"></SearchBar>
+    <SearchBar v-if="displaySearch" />
     <button @click="showSearch" class="search-toggle-btn">
       <span>
         <font-awesome-icon v-if="!displaySearch" :icon="['fas', 'angles-down']" />

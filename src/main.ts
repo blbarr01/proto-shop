@@ -18,7 +18,8 @@ library.add(faTwitter,
     faMagnifyingGlass,
     faStar,
     faCircleUser,
-    faCartShopping);
+    faCartShopping
+);
 
     
 const app = createApp(App)

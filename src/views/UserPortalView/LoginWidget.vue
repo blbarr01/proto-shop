@@ -3,11 +3,11 @@
     <h3>Sign in</h3>
     <form  @submit.prevent="handleLogin" class="form">
           <input class="inputField" required type="email" placeholder="email" v-model="email" />
-          <input type="password" name="password" placeholder="password" v-model="password">
+          <input class="inputField" type="password" name="password" placeholder="password" v-model="password">
           <input
             type="submit"
             class="clickable"
-            :value="loading ? 'Loading' : 'login'"
+            :value="loading ? 'Loading' : 'Login'"
             :disabled="loading"
           />
 
@@ -17,10 +17,6 @@
     </div>
   </div>
 </template>
-
-<script>
-
-</script>
 
 <script setup lang="ts">
     import {ref} from 'vue'
@@ -64,5 +60,5 @@
 
 
 <style>
-    
+   
 </style>

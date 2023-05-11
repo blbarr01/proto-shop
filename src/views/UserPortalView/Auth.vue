@@ -1,23 +1,26 @@
 
 
 <template>
-    <p>back to<RouterLink to="/"> Home </RouterLink></p> 
+    <div class="link-home"> <RouterLink to="/">  Back to Home </RouterLink> </div>
     <div class="widget">
         <Registration v-if="signUp"/>
         <Login v-else/> 
     </div>
     <div class="auth-widget">
-        <p @click="loginWithGoogle">or log in with google <span><font-awesome-icon :icon="['fab', 'google']" /></span></p>
+        <p @click="loginWithGoogle">Or log in with google <span><font-awesome-icon :icon="['fab', 'google']" /></span></p>
     </div>
     <p>
+        <div class="link">
         <span v-if="signUp">
-            already have an account?
+            <span @click="signUp = !signUp" class="link">Already have an account? <br></span> 
         </span>
+        
         <span v-else>
-            new?
+            <span @click="signUp = !signUp" class="link"> Need an account? <br></span>
         </span>
-        click
-        <span @click="signUp = !signUp" class="link">here</span></p>
+        
+       </div>
+        </p>
 </template>
 
 
@@ -55,5 +58,21 @@ async function loginWithGoogle(){
  .link {
      color: var(--brilliant-azure);
      cursor: pointer;
+     text-align: center;
+     padding: 10px;;
  }
+ .widget
+ {
+    text-align: center;
+ }
+ .link-home
+ {
+    text-align: center;
+    margin-bottom: 20px;
+ }
+ .auth-widget
+ {
+    margin-top: 20px;
+ }
+
 </style>
