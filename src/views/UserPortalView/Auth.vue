@@ -29,9 +29,13 @@ import { ref } from 'vue'
 import { supabase } from '@/supabase'
 import Login from './LoginWidget.vue'
 import Registration from './RegistrationWidget.vue'
+import { useRouter } from 'vue-router'
+import { useAuth } from '@/stores/auth'
 
+const authStore = useAuth()
 const loading = ref(false)
 const signUp = ref(true)
+const router = useRouter()
 
 
 async function loginWithGoogle(){
