@@ -16,11 +16,12 @@
         </div>
         <main>
             <div class="cart-list">
-                <CartItem v-for="c in n"/>
+                <CartItem v-for="cartItem in cart" :item="cartItem"/>
             </div>
             <div class="form-area">
                 <AddressForm/>
             </div>
+            <pre>{{ cart }}</pre>
         </main>
     <Footer />
 </template>
@@ -30,6 +31,14 @@ import Header from '@/components/SiteHeader.vue'
 import Footer from '@/components/SiteFooter.vue'
 import AddressForm from './AddressForm.vue';
 import CartItem from '@/components/CartItem.vue';
+import { storeToRefs } from 'pinia';
+import { useCartStore } from '@/stores/cart'
+
+const cartStore = useCartStore()
+
+const {cart} = storeToRefs(cartStore)
+console.log(cart.value);
+
 
 const n = 3;
 
