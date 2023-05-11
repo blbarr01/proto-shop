@@ -2,7 +2,7 @@
     <Header />
     <main class="grid-wrapper">
         <div class="cart-list">
-            <CartItem v-for="cartItem in cart" :item="cartItem" />
+            <CartItem v-for="cartItem in cart" :item="cartItem" :key="cartItem.product.id" />
         </div>
         <div class="form-area">
             <AddressForm />
