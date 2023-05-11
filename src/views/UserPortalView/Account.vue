@@ -62,6 +62,7 @@ async function signOut() {
   try {
     loading.value = true
     let { error } = await supabase.auth.signOut()
+    localStorage.clear();
     if (error) throw error
   } catch (error) {
     alert(error.message)
