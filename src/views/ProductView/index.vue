@@ -16,7 +16,7 @@
         <span class="web-gold"><font-awesome-icon :icon="['fas', 'star']" /></span>
       </p>
       <div class="btn-container">
-        <button class="azure">add to cart</button>
+        <button class="azure" @click="addToCart(product)">add to cart</button>
         <button class="rus-violet">buy now</button>
       </div>
     </div>
