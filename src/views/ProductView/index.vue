@@ -17,7 +17,7 @@
       </p>
       <div class="btn-container">
         <button class="azure" @click="addToCart(product)">add to cart</button>
-        <button class="rus-violet">buy now</button>
+        <button class="rus-violet" @click="buyNow(product)">buy now</button>
       </div>
     </div>
   </main>
@@ -29,11 +29,12 @@ import Header from '@/components/SiteHeader.vue'
 import Footer from '@/components/SiteFooter.vue'
 import ImageWidget from './ImageWidget.vue'
 import type Product from '@/types/product'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { computed, reactive } from 'vue'
 import { baseURL } from '@/endpoint'
 import { useCartStore } from '@/stores/cart'
 
+const router = useRouter()
 const route = useRoute()
 // need to cast the paramater; this caused such a god damn fit
 let id: number = parseInt(<string>route.params.id)
@@ -59,6 +60,11 @@ const cartStore = useCartStore()
 
 const addToCart = (product: Product) => {
   cartStore.addToCart(product)
+}
+
+const buyNow = (product: Product) =>{
+  addToCart(product)
+  router.push({name: "Checkout"})
 }
 </script>
 
