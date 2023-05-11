@@ -50,7 +50,6 @@ try {
 }
 
 let images: string[] = product.images
-console.log(product)
 
 const discountedPrice = computed(() => {
   return Math.floor(product.price - (product.discountPercentage / 100) * product.price)
