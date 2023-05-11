@@ -1,7 +1,5 @@
 <template>
-     <h3>Billing Address</h3>
-    
-        <form action="/action_page.php">
+    <form action="">
         <BaseInput 
         label="street"
         v-model="street"
@@ -11,17 +9,10 @@
         v-model="city"
         />
         <BaseInput 
-        label="State"
-        v-model="state"
-        />
-        <BaseInput 
         label="zip"
         v-model="zip"
         />
-
     </form>        
-
-   
 </template>
 
 <script setup lang="ts">
@@ -44,9 +35,4 @@ const {street, city, zip , state} = address;
         flex-direction: column;
         gap: 2em;
     }
-    h3{
-    color:#F62E97;
-    font-weight: bold;
-   }
-
 </style>
