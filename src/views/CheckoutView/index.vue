@@ -7,7 +7,7 @@
         <div class="form-area">
             <AddressForm />
             <PaymentForm />
-            <button> place order</button>
+            <button @click="placeOrder"> place order</button>
         </div>
     </main>
     <Footer />
@@ -19,6 +19,7 @@ import Footer from '@/components/SiteFooter.vue'
 import AddressForm from './AddressForm.vue';
 import PaymentForm from './PaymentForm.vue';
 import CartItem from '@/components/CartItem.vue';
+import { supabase } from '@/supabase';
 
 import { storeToRefs } from 'pinia';
 import { useCartStore } from '@/stores/cart'
@@ -26,8 +27,13 @@ import { useCartStore } from '@/stores/cart'
 const cartStore = useCartStore()
 
 const { cart } = storeToRefs(cartStore)
-console.log(cart.value);
 
+async function placeOrder(){
+    const { data, error } = await supabase.functions.invoke('hello-world', {
+        body: { name: 'Functions' }})
+    console.log(data);
+    
+}
 
 </script>
 
