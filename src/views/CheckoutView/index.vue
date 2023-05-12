@@ -6,6 +6,8 @@
         </div>
         <div class="form-area">
             <AddressForm />
+            <PaymentForm />
+            <button> place order</button>
         </div>
     </main>
     <Footer />
@@ -15,7 +17,9 @@
 import Header from '@/components/SiteHeader.vue'
 import Footer from '@/components/SiteFooter.vue'
 import AddressForm from './AddressForm.vue';
+import PaymentForm from './PaymentForm.vue';
 import CartItem from '@/components/CartItem.vue';
+
 import { storeToRefs } from 'pinia';
 import { useCartStore } from '@/stores/cart'
 
@@ -27,12 +31,12 @@ console.log(cart.value);
 
 </script>
 
-<style scoped>
+<style lang='css' scoped>
+
 main {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: auto;
-    border: 2px solid red;
     gap: 2em;
     margin-top: 2em;
     max-width: 1280px;
