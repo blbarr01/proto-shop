@@ -1,13 +1,15 @@
 <template>
     <Header />
     <main class="grid-wrapper">
-        <div class="cart-list">
+        <div class="order-area">
             <CartItem v-for="cartItem in cart" :item="cartItem" :key="cartItem.product.id"/>
+            <h3 class="total-header">Order Total: {{ total }}</h3>
+            <p>By placing your order, you agree to our terms and conditions</p>
         </div>
         <div class="form-area">
             <AddressForm />
             <PaymentForm />
-            <button> place order</button>
+            <button class="order-btn clickable"> place order</button>
         </div>
     </main>
     <Footer />
@@ -22,12 +24,18 @@ import CartItem from '@/components/CartItem.vue';
 
 import { storeToRefs } from 'pinia';
 import { useCartStore } from '@/stores/cart'
+import { computed } from 'vue';
 
 const cartStore = useCartStore()
 
 const { cart } = storeToRefs(cartStore)
 console.log(cart.value);
-
+const total = computed(()=>{
+    return cart.value.reduce((total, item)=>{
+        let subtotal = item.product.price * item.quantity
+        return total + subtotal
+    },0)
+})
 
 </script>
 
@@ -42,17 +50,40 @@ main {
     max-width: 1280px;
 }
 
-.form-area, .cart-list {
+.form-area, .order-area {
     grid-column: span 1;
+    display: flex;
+    flex-direction: column;
 }
 
+.order-btn{
+    background-color: var(--color-background-soft);
+    color: var(--persian-rose);
+    width: 30%;
+    align-self: center;
+    margin:.5em auto;
+    border-radius: .33rem;
+    border: 2px solid var(--russian-violet);
+    font-size: 1.5rem;
+    
+}
+
+.total-header{
+    color: var(--persian-rose);
+    font-size: 1.5rem;
+}
 
 @media screen and (min-width: 631px) {
     main{
         grid-template-columns: repeat(4, 1fr);
     }
-    .form-area, .cart-list {
+    .form-area, .order-area {
         grid-column: span 2;
+
+    }
+
+    .total-header{
+        font-size: 2rem;
     }
 }
 
