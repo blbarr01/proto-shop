@@ -22,7 +22,7 @@
       </span>
     </button>
   </div>
-  <div class="cart-wrapper">
+  <div v-if="showCart" class="cart-wrapper">
     <CartWidget />
   </div>
 </template>
@@ -31,13 +31,21 @@
 import SearchBar from './SearchBar.vue';
 import SiteNav from './SiteNav.vue';
 import CartWidget from './CartWidget.vue';
-import { RouterLink } from 'vue-router';
-import { ref } from 'vue'
+import { RouterLink , useRoute } from 'vue-router';
+import { computed, ref } from 'vue'
 //const title = ref('The Proto Shop')
+const path = useRoute().path
 const displaySearch = ref(false);
 const showSearch = () => {
   displaySearch.value = !displaySearch.value; 
 }
+
+const showCart = computed(()=>{
+  if(path === "/checkout"){
+    return false
+  }
+  return true
+})
 
 </script>
 
