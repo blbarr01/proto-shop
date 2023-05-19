@@ -43,6 +43,7 @@ const {street, city, zip , state} = address;
        display: flex;
        flex-direction: column;
        gap: 2em;
+       padding: 10px;
    }
    h3{
    color:#F62E97;

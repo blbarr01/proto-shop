@@ -9,7 +9,7 @@
         <div class="form-area">
             <AddressForm />
             <PaymentForm />
-            <button class="order-btn clickable"> place order</button>
+            <button id= "orderBtn"> place order</button>
         </div>
     </main>
     <Footer />
@@ -50,7 +50,27 @@ main {
     max-width: 1280px;
 }
 
-.form-area, .order-area {
+#orderBtn {
+  background-color: var(--persian-rose);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  margin:10px;
+}
+
+#orderBtn:hover {
+  background-color: #45a049;
+  transform: scale(1.1);
+}
+
+
+.form-area, .cart-list {
     grid-column: span 1;
     display: flex;
     flex-direction: column;

@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-const title = ref('tell your freinds about us')
+const title = ref('tell your friends about us')
 const socials = ref(['insta', 'Twit', 'Face', 'Yout'])
 </script>
 
@@ -42,10 +42,19 @@ footer > h3 {
 
 .social-item{
   color: var(--persian-rose);
+  display: inline-block;
+  animation: spin 1.5s linear infinite;
 }
 
 .social-item:hover{
   color:var(--brilliant-azure);
   cursor: pointer;
+  animation-play-state: paused;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
 }
 </style>
