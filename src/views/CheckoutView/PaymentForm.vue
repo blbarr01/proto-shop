@@ -50,6 +50,7 @@ const {firstName,  lastName, cardNumber , expmonth, expyear,  cvv } = address;
 
 <style lang="css" scoped>
    form{
+    padding: 10px;
        display: flex;
        flex-direction: column;
        gap: 2em;

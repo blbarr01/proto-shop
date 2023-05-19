@@ -11,7 +11,9 @@
     <SiteNav />
   </header>
   <div class="searchbar">
-    <SearchBar v-if="displaySearch" />
+    <Transition name = "slide">
+    <SearchBar v-if="displaySearch"/>
+    </Transition>
     <button @click="showSearch" class="search-toggle-btn">
       <span>
         <font-awesome-icon v-if="!displaySearch" :icon="['fas', 'angles-down']" />
@@ -55,6 +57,23 @@ h1 {
 .tImage {
   max-width: 100%;
   height: auto;
+  transition: transform 0.2s ease;
+}
+
+.tImage:hover {
+  animation: bounce 0.5s;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 header {
@@ -62,14 +81,26 @@ header {
   border-bottom: 2px solid var(--accent-clr);
 }
 
-
-
 .searchbar {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  height: 50px;
 }
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: height 1s ease;
+}
+
+.slide-enter,
+.slide-leave-to {
+  height: 0;
+  overflow: hidden;
+}
+
+
 
 .cart-link {
   padding: 1em;

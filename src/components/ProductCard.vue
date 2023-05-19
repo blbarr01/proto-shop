@@ -39,6 +39,7 @@ let id = product?.id
   display: flex;
   flex-direction: column;
   padding: 0.5em .75em 1em;
+  transition: transform 0.3s;
 }
 
 .product-details {
@@ -54,6 +55,7 @@ let id = product?.id
 }
 
 .product-card:hover {
+  transform: scale(0.9); 
   border: 2px solid var(--accent-clr-hover);
   box-shadow:
     inset 0 -0.5em 0.3em var(--accent-clr),
